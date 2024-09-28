@@ -1,5 +1,5 @@
 {
-  description = "eugene's systems flake";
+  description = "eugene's nix config";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs";
