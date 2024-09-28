@@ -1,0 +1,46 @@
+{
+  autowrite = true; # Enable auto write
+  breakindent = true; # Enable break indent
+  clipboard = "unnamedplus"; # Sync with system clipboard
+  completeopt = "menu,menuone,noselect,noinsert";
+  conceallevel = 0; # No concealment
+  confirm = true; # Confirm to save changes before exiting modified buffer
+  cursorline = true; # Enable highlighting of the current line
+  expandtab = true; # Use spaces instead of tabs
+  foldlevel = 99; # Don't fold anything
+  formatoptions = "jcroqlnt"; # tcqj
+  grepformat = "%f:%l:%c:%m";
+  grepprg = "rg --vimgrep";
+  hlsearch = false; # Set highlight on search
+  ignorecase = true; # Ignore case
+  inccommand = "nosplit"; # preview incremental substitute
+  list = false; # Show some invisible characters (tabs...
+  mouse = "a"; # Enable mouse mode
+  number = true; # Print line number
+  pumheight = 10; # Maximum number of entries in a popup
+  relativenumber = true; # Relative line numbers
+  scrolloff = 4; # Lines of context
+  # sessionoptions = { "buffers", "curdir", "tabpages", "winsize" }
+  shiftround = true; # Round indent
+  shiftwidth = 4; # Size of an indent
+  # shortmess:append({ W = true, I = true, c = true })
+  showmode = false; # Dont show mode since we have a statusline
+  sidescroll = 0; # No sidescrolling
+  signcolumn = "yes"; # Always show the signcolumn
+  smartcase = true; # Don't ignore case with capitals
+  smartindent = true; # Insert indents automatically
+  # spelllang = { "en" }
+  splitbelow = true; # Put new windows below current
+  splitright = true; # Put new windows right of current
+  tabstop = 4; # Number of spaces tabs count for
+  termguicolors = true; # True color support
+  textwidth = 80;
+  timeout = true;
+  timeoutlen = 300;
+  undofile = true; # Save undo history
+  undolevels = 10000;
+  updatetime = 250; # Save swap file and trigger CursorHold
+  wildmode = "longest:full,full"; # Command-line completion mode
+  winminwidth = 5; # Minimum window width
+  wrap = false; # Disable line wrap
+}
