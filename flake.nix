@@ -24,7 +24,7 @@
     darwinConfigurations.cosmocanyon = nix-darwin.lib.darwinSystem {
       specialArgs = { inherit self; };
       modules = [
-        ./darwin/configuration.nix
+        (import ./darwin/configuration.nix)
         home-manager.darwinModules.home-manager
         {
           home-manager = {

@@ -32,12 +32,11 @@
         source = ../dotfiles/tmux;
         recursive = true;
       };
-    } // lib.mkIf (pkgs.stdenv.isDarwin) {
-      "${config.xdg.configHome}/aerospace" = {
+      "${config.xdg.configHome}/aerospace" = lib.mkIf (pkgs.stdenv.isDarwin) {
         source = ../dotfiles/aerospace;
         recursive = true;
       };
-      "${config.xdg.configHome}/alacritty" = {
+      "${config.xdg.configHome}/alacritty" = lib.mkIf (pkgs.stdenv.isDarwin) {
         source = ../dotfiles/alacritty;
         recursive = true;
       };
@@ -73,7 +72,7 @@
       yt-m4a = "yt-dlp -f ba[ext=m4a]";
       zshsrc = "source ~/.zshrc";
     };
-    initExtra = ''
+    initExtra = lib.mkIf (pkgs.stdenv.isDarwin) ''
       eval "$(/opt/homebrew/bin/brew shellenv)"
       export PATH=$PATH:/Library/Tex/texbin
     '';
@@ -101,12 +100,13 @@
         nvim.cmd =
           ''nvim -d -c "wincmd l" -c "norm ]c" "$LOCAL" "$MERGED" "$REMOTE"'';
       };
-      commit.gpgsign = lib.mkIf (!pkgs.stdenv.isDarwin) true;
-      gpg = lib.mkIf (!pkgs.stdenv.isDarwin) {
+      commit.gpgsign = true;
+      gpg = {
         format = "ssh";
-        ssh.program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
+        ssh.program = lib.mkIf (pkgs.stdenv.isDarwin)
+          "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
       };
-      user.signingkey = lib.mkIf (!pkgs.stdenv.isDarwin)
+      user.signingkey =
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFBLps3u2eBfFN0b0CGTDLgtLAmYGdglShNsoXxXQX1j";
     };
   };
