@@ -21,21 +21,29 @@
   };
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, nixvim }: {
-    darwinConfigurations.cosmocanyon = nix-darwin.lib.darwinSystem {
-      specialArgs = { inherit self; };
-      modules = [
-        (import ./darwin/configuration.nix)
-        home-manager.darwinModules.home-manager
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            verbose = true;
-            extraSpecialArgs = { inherit inputs; };
-            users.eugene = import ./home-manager/home.nix;
-          };
-        }
-      ];
+    darwinConfigurations = {
+      cosmocanyon = nix-darwin.lib.darwinSystem {
+        specialArgs = { inherit self; };
+        modules = [
+          ./darwin/configuration.nix
+          home-manager.darwinModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              verbose = true;
+              extraSpecialArgs = { inherit inputs; };
+              users.eugene = import ./home-manager/home.nix;
+            };
+          }
+        ];
+      };
+    };
+    homeConfigurations = {
+      "euchou@dennard" = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs { system = "x86_64-linux"; };
+        modules = [ ./home-manager/home.nix ];
+      };
     };
   };
 }

@@ -21,10 +21,11 @@
       cleanup = "uninstall";
     };
     taps = [ "nikitabobko/tap" ];
-    brews = [ "cowsay" ];
+    brews = [ ];
     casks = [
       "aerospace"
       "alacritty"
+      "anki"
       "docker"
       "discord"
       "firefox"
