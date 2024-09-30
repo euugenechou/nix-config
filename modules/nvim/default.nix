@@ -34,6 +34,7 @@ in {
     opts = import ./opts.nix;
     keymaps = import ./keymaps.nix;
     plugins = import ./plugins;
+    autoCmd = import ./autocmd.nix;
     extraPlugins = [ aerial one-monokai ];
     extraConfigLua = ''
       require('aerial').setup({})
