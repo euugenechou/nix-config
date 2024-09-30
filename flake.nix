@@ -33,7 +33,7 @@
               useUserPackages = true;
               verbose = true;
               extraSpecialArgs = { inherit inputs; };
-              users.eugene = import ./home-manager/home.nix;
+              users.eugene = import ./home-manager/darwin.nix;
             };
           }
         ];
@@ -42,8 +42,11 @@
     homeConfigurations = {
       "euchou@dennard" = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs { system = "x86_64-linux"; };
-        specialArgs = { inherit inputs; };
-        modules = [ ./home-manager/home.nix ];
+        specialArgs = {
+          inherit inputs;
+          username = "euchou";
+        };
+        modules = [ ./home-manager/linux-server.nix ];
       };
     };
   };

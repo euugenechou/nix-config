@@ -32,11 +32,11 @@
         source = ../dotfiles/tmux;
         recursive = true;
       };
-      "${config.xdg.configHome}/aerospace" = lib.mkIf (pkgs.stdenv.isDarwin) {
+      "${config.xdg.configHome}/aerospace" = {
         source = ../dotfiles/aerospace;
         recursive = true;
       };
-      "${config.xdg.configHome}/alacritty" = lib.mkIf (pkgs.stdenv.isDarwin) {
+      "${config.xdg.configHome}/alacritty" = {
         source = ../dotfiles/alacritty;
         recursive = true;
       };
