@@ -9,6 +9,7 @@
   lsp = import ./lsp.nix;
   mini = import ./mini.nix;
   rainbow-delimiters.enable = false;
+  rustaceanvim = import ./rustaceanvim.nix;
   telescope = import ./telescope.nix;
   treesitter = import ./treesitter.nix;
   trouble = import ./trouble.nix;

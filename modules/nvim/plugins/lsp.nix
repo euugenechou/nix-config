@@ -35,17 +35,16 @@
       action.__raw = "vim.lsp.buf.signature_help";
       options.desc = "signature help";
     }
+    {
+      key = "gA";
+      action.__raw = "vim.lsp.buf.code_action";
+      options.desc = "code action";
+    }
   ];
   servers = {
     clangd = {
       enable = true;
       autostart = true;
-    };
-    rust-analyzer = {
-      enable = true;
-      autostart = true;
-      installCargo = true;
-      installRustc = true;
     };
     hls = {
       enable = true;

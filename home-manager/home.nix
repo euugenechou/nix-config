@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ stdenv, config, pkgs, lib, ... }: {
   imports = [ ../modules/nvim ];
 
   home = {
@@ -24,20 +24,21 @@
     ];
 
     file = {
-      "${config.xdg.configHome}/aerospace" = {
-        source = ../modules/aerospace;
-        recursive = true;
-      };
-      "${config.xdg.configHome}/alacritty" = {
-        source = ../modules/alacritty;
-        recursive = true;
-      };
       "${config.xdg.configHome}/oh-my-zsh" = {
-        source = ../modules/oh-my-zsh;
+        source = ../dotfiles/oh-my-zsh;
         recursive = true;
       };
       "${config.xdg.configHome}/tmux" = {
-        source = ../modules/tmux;
+        source = ../dotfiles/tmux;
+        recursive = true;
+      };
+    } // lib.mkIf (pkgs.stdenv.isDarwin) {
+      "${config.xdg.configHome}/aerospace" = {
+        source = ../dotfiles/aerospace;
+        recursive = true;
+      };
+      "${config.xdg.configHome}/alacritty" = {
+        source = ../dotfiles/alacritty;
         recursive = true;
       };
     };
@@ -93,13 +94,6 @@
     extraConfig = {
       pull.rebase = false;
       init.defaultBranch = "main";
-      commit.gpgsign = true;
-      gpg = {
-        format = "ssh";
-        ssh.program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
-      };
-      user.signingkey =
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFBLps3u2eBfFN0b0CGTDLgtLAmYGdglShNsoXxXQX1j";
       merge.tool = "nvim";
       mergetool = {
         keepBackup = false;
@@ -107,6 +101,13 @@
         nvim.cmd =
           ''nvim -d -c "wincmd l" -c "norm ]c" "$LOCAL" "$MERGED" "$REMOTE"'';
       };
+      commit.gpgsign = lib.mkIf (!pkgs.stdenv.isDarwin) true;
+      gpg = lib.mkIf (!pkgs.stdenv.isDarwin) {
+        format = "ssh";
+        ssh.program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
+      };
+      user.signingkey = lib.mkIf (!pkgs.stdenv.isDarwin)
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFBLps3u2eBfFN0b0CGTDLgtLAmYGdglShNsoXxXQX1j";
     };
   };
 
