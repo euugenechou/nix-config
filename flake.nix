@@ -48,6 +48,14 @@
         };
         modules = [ ./home-manager/linux-server.nix ];
       };
+      "euchou@xenon" = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs { system = "x86_64-linux"; };
+        extraSpecialArgs = {
+          inherit inputs;
+          username = "euchou";
+        };
+        modules = [ ./home-manager/linux-server.nix ];
+      };
     };
   };
 }
