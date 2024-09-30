@@ -42,7 +42,7 @@
     homeConfigurations = {
       "euchou@dennard" = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs { system = "x86_64-linux"; };
-        specialArgs = {
+        extraSpecialArgs = {
           inherit inputs;
           username = "euchou";
         };
