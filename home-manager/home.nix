@@ -1,4 +1,4 @@
-{ stdenv, config, pkgs, lib, ... }: {
+{ config, pkgs, lib, ... }: {
   imports = [ ../modules/nvim ];
 
   home = {
