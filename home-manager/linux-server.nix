@@ -7,19 +7,25 @@
     username = "${username}";
     homeDirectory = "/home/${username}";
 
-    packages = with pkgs; [
-      bear
-      clang-tools
-      dust
-      eza
-      fd
-      neofetch
-      nixfmt-classic
-      radare2
-      ripgrep
-      rustup
-      tmux
-    ];
+    packages = with pkgs;
+      let
+        R-prime = rWrapper.override {
+          packages = with rPackages; [ tidyverse httpgd languageserver ];
+        };
+      in [
+        R-prime
+        bear
+        clang-tools
+        dust
+        eza
+        fd
+        neofetch
+        nixfmt-classic
+        radare2
+        ripgrep
+        rustup
+        tmux
+      ];
 
     file = {
       "${config.xdg.configHome}/oh-my-zsh" = {
