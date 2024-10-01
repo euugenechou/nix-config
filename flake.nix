@@ -39,21 +39,21 @@
             }
           ];
         });
-      mkHome = (system: username:
+      mkServer = (system: username:
         home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs { inherit system; };
           extraSpecialArgs = {
             inherit inputs;
             inherit username;
           };
-          modules = [ ./home-manager/linux-server.nix ];
+          modules = [ ./home-manager/server.nix ];
         });
     in {
       darwinConfigurations = {
         cosmocanyon = mkDarwin ./darwin/cosmocanyon.nix;
       };
       homeConfigurations = {
-        "euchou@dennard" = mkHome "x86_64-linux" "euchou";
+        "euchou@dennard" = mkServer "x86_64-linux" "euchou";
       };
     };
 }
