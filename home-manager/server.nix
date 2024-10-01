@@ -59,7 +59,7 @@
       theme = "eugebe";
     };
     shellAliases = {
-      back = "cd $OLDPWD";
+      b = "cd $OLDPWD";
       c = "clear";
       ls = "eza";
       ll = "eza -l";
