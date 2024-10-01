@@ -54,6 +54,7 @@
       };
       homeConfigurations = {
         "euchou@dennard" = mkServer "x86_64-linux" "euchou";
+        "euchou@banana" = mkServer "x86_64-linux" "euchou";
       };
     };
 }
