@@ -75,6 +75,9 @@
     initExtra = lib.mkIf (pkgs.stdenv.isDarwin) ''
       eval "$(/opt/homebrew/bin/brew shellenv)"
       export PATH=$PATH:/Library/Tex/texbin
+      export MANPATH=$MANPATH:/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/share/man
+      export MANPATH=$MANPATH:/Library/Developer/CommandLineTools/usr/share/man
+      export MANPATH=$MANPATH:/Library/Developer/CommandLineTools/Toolchains/XcodeDefault.xctoolchain/usr/share/man
     '';
   };
 
