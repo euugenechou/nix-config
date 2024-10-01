@@ -20,42 +20,40 @@
     };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, nixvim }: {
-    darwinConfigurations = {
-      cosmocanyon = nix-darwin.lib.darwinSystem {
-        specialArgs = { inherit self; };
-        modules = [
-          ./darwin/configuration.nix
-          home-manager.darwinModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              verbose = true;
-              extraSpecialArgs = { inherit inputs; };
-              users.eugene = import ./home-manager/darwin.nix;
-            };
-          }
-        ];
+  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, nixvim }:
+    let
+      mkDarwin = (config:
+        nix-darwin.lib.darwinSystem {
+          specialArgs = { inherit self; };
+          modules = [
+            config
+            home-manager.darwinModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                verbose = true;
+                extraSpecialArgs = { inherit inputs; };
+                users.eugene = import ./home-manager/darwin.nix;
+              };
+            }
+          ];
+        });
+      mkHome = (system: username:
+        home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs { inherit system; };
+          extraSpecialArgs = {
+            inherit inputs;
+            username = username;
+          };
+          modules = [ ./home-manager/linux-server.nix ];
+        });
+    in {
+      darwinConfigurations = {
+        cosmocanyon = mkDarwin ./darwin/cosmocanyon.nix;
+      };
+      homeConfigurations = {
+        "euchou@dennard" = mkHome "x86_64-linux" "euchou";
       };
     };
-    homeConfigurations = {
-      "euchou@dennard" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs { system = "x86_64-linux"; };
-        extraSpecialArgs = {
-          inherit inputs;
-          username = "euchou";
-        };
-        modules = [ ./home-manager/linux-server.nix ];
-      };
-      "euchou@xenon" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs { system = "x86_64-linux"; };
-        extraSpecialArgs = {
-          inherit inputs;
-          username = "euchou";
-        };
-        modules = [ ./home-manager/linux-server.nix ];
-      };
-    };
-  };
 }
