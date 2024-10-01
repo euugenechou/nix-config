@@ -44,7 +44,7 @@
           pkgs = import nixpkgs { inherit system; };
           extraSpecialArgs = {
             inherit inputs;
-            username = username;
+            inherit username;
           };
           modules = [ ./home-manager/linux-server.nix ];
         });
