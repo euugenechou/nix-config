@@ -6,7 +6,7 @@ in {
     settings = {
       flavour = "mocha";
       no_italic = true;
-      no_bold = true;
+      no_bold = false;
       no_underline = true;
       integrations = {
         aerial = true;
@@ -99,6 +99,8 @@ in {
             YankHighlight = { bg = colors.surface2 },
             FidgetTask = { fg = colors.subtext2 },
             FidgetTitle = { fg = colors.peach },
+            TroubleCount = { fg = colors.text, bg = colors.surface0 },
+            TroublePreview = { bg = colors.surface0 },
 
             IblIndent = { fg = colors.surface0 },
             IblScope = { fg = colors.overlay0 },
@@ -133,16 +135,16 @@ in {
             Ignore = { fg = colors.text },
             Macro = { fg = colors.blue },
 
-            TSAnnotation = { fg = colors.mauve },
-            TSAttribute = { fg = colors.mauve },
+            TSAnnotation = { fg = colors.red },
+            TSAttribute = { fg = colors.red },
             TSBoolean = { fg = colors.mauve },
             TSCharacter = { fg = colors.yellow },
             TSCharacterSpecial = { link = "SpecialChar" },
             TSComment = { link = "Comment" },
             TSConditional = { fg = colors.red },
-            TSConstBuiltin = { fg = colors.mauve },
-            TSConstMacro = { fg = colors.mauve },
-            TSConstant = { fg = colors.mauve },
+            TSConstBuiltin = { fg = colors.blue },
+            TSConstMacro = { fg = colors.blue },
+            TSConstant = { fg = colors.blue },
             TSConstructor = { fg = colors.green },
             TSDebug = { link = "Debug" },
             TSDefine = { link = "Define" },
@@ -150,10 +152,10 @@ in {
             TSEnvironmentName = { link = "Type" },
             TSError = { link = "Error" },
             TSException = { fg = colors.red },
-            TSField = { fg = colors.peach },
+            TSField = { fg = colors.text },
             TSFloat = { fg = colors.mauve },
             TSFuncBuiltin = { fg = colors.green },
-            TSFuncMacro = { fg = colors.green },
+            TSFuncMacro = { fg = colors.blue },
             TSFunction = { fg = colors.green },
             TSFunctionCall = { fg = colors.green },
             TSInclude = { fg = colors.red },
@@ -173,10 +175,10 @@ in {
             TSParameter = { fg = colors.peach },
             TSParameterReference = { fg = colors.peach },
             TSPreProc = { link = "PreProc" },
-            TSProperty = { fg = colors.peach },
+            TSProperty = { fg = colors.text },
             TSPunctBracket = { fg = colors.text },
             TSPunctDelimiter = { link = "Delimiter" },
-            TSPunctSpecial = { fg = colors.red },
+            TSPunctSpecial = { fg = colors.text },
             TSRepeat = { fg = colors.red },
             TSStorageClass = { fg = colors.red },
             TSStorageClassLifetime = { fg = colors.red },

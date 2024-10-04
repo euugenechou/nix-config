@@ -11,6 +11,7 @@
 
     packages = with pkgs; [
       alejandra
+      bat
       bear
       cabal-install
       clang-tools
