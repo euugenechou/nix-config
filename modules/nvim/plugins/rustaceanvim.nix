@@ -2,7 +2,7 @@
   enable = true;
   settings = {
     server = {
-      default_settings = { rust-analyzer = { cargo.features = "all"; }; };
+      default_settings = {rust-analyzer = {cargo.features = "all";};};
     };
   };
 }

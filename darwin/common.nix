@@ -1,11 +1,15 @@
-{ self, pkgs, ... }: {
+{
+  self,
+  pkgs,
+  ...
+}: {
   services.nix-daemon.enable = true;
 
   nix.settings.experimental-features = "nix-command flakes";
 
   programs.zsh.enable = true;
 
-  environment.systemPackages = with pkgs; [ git vim ];
+  environment.systemPackages = with pkgs; [git vim];
 
   homebrew = {
     enable = true;
@@ -13,8 +17,8 @@
       autoUpdate = false;
       cleanup = "uninstall";
     };
-    taps = [ "nikitabobko/tap" ];
-    brews = [ ];
+    taps = ["nikitabobko/tap"];
+    brews = [];
     casks = [
       "aerospace"
       "alacritty"

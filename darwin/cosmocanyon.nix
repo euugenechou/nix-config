@@ -1,5 +1,5 @@
-{ ... }: {
-  imports = [ ./common.nix ];
+{...}: {
+  imports = [./common.nix];
 
   nixpkgs.hostPlatform = "aarch64-darwin";
 

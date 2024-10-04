@@ -3,6 +3,7 @@
   cmp-buffer.enable = true;
   cmp-nvim-lsp.enable = true;
   cmp-path.enable = true;
+  conform-nvim = import ./conform-nvim.nix;
   bufferline = import ./bufferline.nix;
   indent-blankline = import ./indent-blankline.nix;
   lualine = import ./lualine.nix;

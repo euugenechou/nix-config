@@ -1,10 +1,16 @@
-{ config, pkgs, lib, ... }: {
-  imports = [ ../modules/nvim ];
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
+  imports = [./common.nix];
 
   home = {
     stateVersion = "23.05";
 
     packages = with pkgs; [
+      alejandra
       bear
       cabal-install
       clang-tools
@@ -12,6 +18,7 @@
       eza
       fd
       ghc
+      glances
       idris2
       lilypond
       neofetch
@@ -55,12 +62,13 @@
     };
     syntaxHighlighting = {
       enable = true;
-      styles = { arg0 = "fg=green,bold"; };
+      styles = {arg0 = "fg=green,bold";};
     };
     oh-my-zsh = {
       enable = true;
       custom = "${config.xdg.configHome}/oh-my-zsh";
       theme = "eugebe";
+      plugins = ["colored-man-pages"];
     };
     shellAliases = {
       b = "cd $OLDPWD";
@@ -72,12 +80,13 @@
       yt-m4a = "yt-dlp -f ba[ext=m4a]";
       zshsrc = "source ~/.zshrc";
     };
-    initExtra = lib.mkIf (pkgs.stdenv.isDarwin) ''
+    initExtra = ''
       eval "$(/opt/homebrew/bin/brew shellenv)"
       export PATH=$PATH:/Library/Tex/texbin
       export MANPATH=$MANPATH:/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/share/man
       export MANPATH=$MANPATH:/Library/Developer/CommandLineTools/usr/share/man
       export MANPATH=$MANPATH:/Library/Developer/CommandLineTools/Toolchains/XcodeDefault.xctoolchain/usr/share/man
+      less_termcap[so]="''${fg_bold[249]}"
     '';
   };
 
@@ -85,11 +94,10 @@
     enable = true;
     userName = "Eugene Chou";
     userEmail = "euchou@ucsc.edu";
-    ignores = [ ".DS_Store" ];
+    ignores = [".DS_Store"];
     aliases = {
       pushall = "!git remote | xargs -L1 git push --all";
-      history =
-        "!git log --pretty=format: --name-only --diff-filter=A | sort -u";
+      history = "!git log --pretty=format: --name-only --diff-filter=A | sort -u";
       adog = "log --all --decorate --oneline --graph";
       cowboy = ''!git commit -m "🤠"'';
     };
@@ -100,27 +108,16 @@
       mergetool = {
         keepBackup = false;
         prompt = false;
-        nvim.cmd =
-          ''nvim -d -c "wincmd l" -c "norm ]c" "$LOCAL" "$MERGED" "$REMOTE"'';
+        nvim.cmd = ''nvim -d -c "wincmd l" -c "norm ]c" "$LOCAL" "$MERGED" "$REMOTE"'';
       };
       commit.gpgsign = true;
       gpg = {
         format = "ssh";
-        ssh.program = lib.mkIf (pkgs.stdenv.isDarwin)
+        ssh.program =
+          lib.mkIf (pkgs.stdenv.isDarwin)
           "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
       };
-      user.signingkey =
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFBLps3u2eBfFN0b0CGTDLgtLAmYGdglShNsoXxXQX1j";
+      user.signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFBLps3u2eBfFN0b0CGTDLgtLAmYGdglShNsoXxXQX1j";
     };
-  };
-
-  programs.fzf = {
-    enable = true;
-    enableZshIntegration = true;
-    defaultOptions = [
-      "--layout=reverse"
-      "-m"
-      "--bind ctrl-p:preview-up,ctrl-n:preview-down"
-    ];
   };
 }

@@ -20,41 +20,46 @@
     };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, nixvim }:
-    let
-      mkDarwin = (config:
-        nix-darwin.lib.darwinSystem {
-          specialArgs = { inherit self; };
-          modules = [
-            config
-            home-manager.darwinModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                verbose = true;
-                extraSpecialArgs = { inherit inputs; };
-                users.eugene = import ./home-manager/darwin.nix;
-              };
-            }
-          ];
-        });
-      mkServer = (system: username:
-        home-manager.lib.homeManagerConfiguration {
-          pkgs = import nixpkgs { inherit system; };
-          extraSpecialArgs = {
-            inherit inputs;
-            inherit username;
-          };
-          modules = [ ./home-manager/server.nix ];
-        });
-    in {
-      darwinConfigurations = {
-        cosmocanyon = mkDarwin ./darwin/cosmocanyon.nix;
+  outputs = inputs @ {
+    self,
+    nix-darwin,
+    nixpkgs,
+    home-manager,
+    nixvim,
+  }: let
+    mkDarwin = config:
+      nix-darwin.lib.darwinSystem {
+        specialArgs = {inherit self;};
+        modules = [
+          config
+          home-manager.darwinModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              verbose = true;
+              extraSpecialArgs = {inherit inputs;};
+              users.eugene = import ./home-manager/darwin.nix;
+            };
+          }
+        ];
       };
-      homeConfigurations = {
-        "euchou@dennard" = mkServer "x86_64-linux" "euchou";
-        "euchou@banana" = mkServer "x86_64-linux" "euchou";
+    mkServer = system: username:
+      home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {inherit system;};
+        extraSpecialArgs = {
+          inherit inputs;
+          inherit username;
+        };
+        modules = [./home-manager/server.nix];
       };
+  in {
+    darwinConfigurations = {
+      cosmocanyon = mkDarwin ./darwin/cosmocanyon.nix;
     };
+    homeConfigurations = {
+      "euchou@dennard" = mkServer "x86_64-linux" "euchou";
+      "euchou@banana" = mkServer "x86_64-linux" "euchou";
+    };
+  };
 }

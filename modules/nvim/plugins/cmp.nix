@@ -3,8 +3,7 @@
   autoEnableSources = false;
   settings = {
     completion.completeopt = "menu,menuone,noselect,noinsert";
-    sources =
-      [ { name = "nvim_lsp"; } { name = "path"; } { name = "buffer"; } ];
+    sources = [{name = "nvim_lsp";} {name = "path";} {name = "buffer";}];
     mapping = {
       "<cr>" = "cmp.mapping.confirm({ select = true })";
       "<c-space>" = "cmp.mapping.complete()";

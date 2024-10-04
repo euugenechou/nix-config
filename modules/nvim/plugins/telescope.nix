@@ -1,7 +1,7 @@
 {
   enable = true;
-  extensions = { fzf-native.enable = true; };
-  enabledExtensions = [ "aerial" ];
+  extensions = {fzf-native.enable = true;};
+  enabledExtensions = ["aerial"];
   settings = {
     defaults = {
       prompt_prefix = "   ";
@@ -15,15 +15,14 @@
           preview_width = 0.5;
           results_width = 0.8;
         };
-        vertical = { mirror = false; };
+        vertical = {mirror = false;};
         width = 0.8;
         height = 0.8;
       };
       mappings = {
         i = {
           "<C-j>".__raw = "require('telescope.actions').move_selection_next";
-          "<C-k>".__raw =
-            "require('telescope.actions').move_selection_previous";
+          "<C-k>".__raw = "require('telescope.actions').move_selection_previous";
           "<C-n>".__raw = "require('telescope.actions').cycle_history_next";
           "<C-p>".__raw = "require('telescope.actions').cycle_history_prev";
           "<C-e>".__raw = "require('telescope.actions').preview_scrolling_down";
@@ -31,15 +30,13 @@
         };
         n = {
           "<C-j>".__raw = "require('telescope.actions').move_selection_next";
-          "<C-k>".__raw =
-            "require('telescope.actions').move_selection_previous";
+          "<C-k>".__raw = "require('telescope.actions').move_selection_previous";
           "<C-e>".__raw = "require('telescope.actions').preview_scrolling_down";
           "<C-y>".__raw = "require('telescope.actions').preview_scrolling_up";
           "<C-c>".__raw = "require('telescope.actions').close";
         };
       };
     };
-
   };
   keymaps = {
     "<leader>fa" = {

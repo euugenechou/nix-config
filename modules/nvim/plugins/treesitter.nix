@@ -4,6 +4,6 @@
     auto_install = false;
     highlight.enable = true;
     indent.enable = true;
-    ensure_installed = [ "bash" "c" "cpp" "haskell" "rust" "python" ];
+    ensure_installed = ["bash" "c" "cpp" "haskell" "rust" "python"];
   };
 }

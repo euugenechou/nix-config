@@ -1,7 +1,10 @@
-{ inputs, pkgs, ... }:
-let
+{
+  inputs,
+  pkgs,
+  ...
+}: let
   colors = import ./colors.nix;
-  aerial = (pkgs.vimUtils.buildVimPlugin {
+  aerial = pkgs.vimUtils.buildVimPlugin {
     name = "aerial";
     src = pkgs.fetchFromGitHub {
       owner = "stevearc";
@@ -9,8 +12,8 @@ let
       rev = "140f48fb068d21c02e753c63f7443649e55576f0";
       hash = "sha256-7Sj7Z5blJ6Qk/99EV4EBv4vdK1dHDGFL3WRYLEnrRC0=";
     };
-  });
-  one-monokai = (pkgs.vimUtils.buildVimPlugin {
+  };
+  one-monokai = pkgs.vimUtils.buildVimPlugin {
     name = "one_monokai";
     src = pkgs.fetchFromGitHub {
       owner = "cpea2506";
@@ -18,9 +21,9 @@ let
       rev = "18da45f4b0fdfa8ff2c354ac748e03cb910725e6";
       hash = "sha256-Mos98WG05rKHL5sKO7CsLGawFshbf0CUY+5Ki/bFUR8=";
     };
-  });
+  };
 in {
-  imports = [ inputs.nixvim.homeManagerModules.nixvim ];
+  imports = [inputs.nixvim.homeManagerModules.nixvim];
 
   programs.nixvim = {
     enable = true;
@@ -35,7 +38,7 @@ in {
     keymaps = import ./keymaps.nix;
     plugins = import ./plugins;
     autoCmd = import ./autocmd.nix;
-    extraPlugins = [ aerial one-monokai ];
+    extraPlugins = [aerial one-monokai];
     extraConfigLua = ''
       require('aerial').setup({})
       require('one_monokai').setup({
