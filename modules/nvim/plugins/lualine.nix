@@ -1,100 +1,100 @@
 let
-  colors = import ../colors.nix;
+  palette = import ../palette.nix;
   theme = {
     normal = {
       a = {
-        fg = colors.blue;
-        bg = colors.dark_blue;
+        fg = palette.blue;
+        bg = palette.dark_blue;
         gui = "bold";
       };
       b = {
-        fg = colors.fg;
-        bg = colors.dark_blue;
+        fg = palette.fg;
+        bg = palette.dark_blue;
         gui = "bold";
       };
       c = {
-        fg = colors.gray;
-        bg = colors.dark_blue;
+        fg = palette.gray;
+        bg = palette.dark_blue;
       };
     };
     insert = {
       a = {
-        fg = colors.green;
-        bg = colors.dark_blue;
+        fg = palette.green;
+        bg = palette.dark_blue;
         gui = "bold";
       };
       b = {
-        fg = colors.fg;
-        bg = colors.dark_blue;
+        fg = palette.fg;
+        bg = palette.dark_blue;
         gui = "bold";
       };
       c = {
-        fg = colors.gray;
-        bg = colors.dark_blue;
+        fg = palette.gray;
+        bg = palette.dark_blue;
       };
     };
     visual = {
       a = {
-        fg = colors.magenta;
-        bg = colors.dark_blue;
+        fg = palette.magenta;
+        bg = palette.dark_blue;
         gui = "bold";
       };
       b = {
-        fg = colors.fg;
-        bg = colors.dark_blue;
+        fg = palette.fg;
+        bg = palette.dark_blue;
         gui = "bold";
       };
       c = {
-        fg = colors.gray;
-        bg = colors.dark_blue;
+        fg = palette.gray;
+        bg = palette.dark_blue;
       };
     };
     replace = {
       a = {
-        fg = colors.red;
-        bg = colors.dark_blue;
+        fg = palette.red;
+        bg = palette.dark_blue;
         gui = "bold";
       };
       b = {
-        fg = colors.fg;
-        bg = colors.dark_blue;
+        fg = palette.fg;
+        bg = palette.dark_blue;
         gui = "bold";
       };
       c = {
-        fg = colors.gray;
-        bg = colors.dark_blue;
+        fg = palette.gray;
+        bg = palette.dark_blue;
       };
     };
     command = {
       a = {
-        fg = colors.yellow;
-        bg = colors.dark_blue;
+        fg = palette.yellow;
+        bg = palette.dark_blue;
         gui = "bold";
       };
       b = {
-        fg = colors.fg;
-        bg = colors.dark_blue;
+        fg = palette.fg;
+        bg = palette.dark_blue;
         gui = "bold";
       };
       c = {
-        fg = colors.gray;
-        bg = colors.dark_blue;
+        fg = palette.gray;
+        bg = palette.dark_blue;
       };
     };
     inactive = {
       a = {
-        fg = colors.gray;
-        bg = colors.dark_blue;
+        fg = palette.gray;
+        bg = palette.dark_blue;
         gui = "bold";
       };
       b = {
-        fg = colors.fg;
-        bg = colors.dark_blue;
+        fg = palette.fg;
+        bg = palette.dark_blue;
         gui = "bold";
       };
       c = {
-        fg = colors.gray;
-        bg = colors.dark_blue;
+        fg = palette.gray;
+        bg = palette.dark_blue;
       };
     };
   };

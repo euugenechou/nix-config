@@ -8,6 +8,10 @@
   # highlight yanks
   {
     event = "TextYankPost";
-    callback.__raw = "vim.highlight.on_yank()";
+    callback.__raw = ''
+      function()
+          vim.highlight.on_yank()
+      end
+    '';
   }
 ]

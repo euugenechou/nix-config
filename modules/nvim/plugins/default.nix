@@ -9,6 +9,7 @@
   lualine = import ./lualine.nix;
   lsp = import ./lsp.nix;
   mini = import ./mini.nix;
+  oil = import ./oil.nix;
   rainbow-delimiters.enable = false;
   rustaceanvim = import ./rustaceanvim.nix;
   telescope = import ./telescope.nix;

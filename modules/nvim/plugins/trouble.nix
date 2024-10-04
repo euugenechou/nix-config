@@ -1,7 +1,6 @@
 {
   enable = true;
   settings = {
-    icons = false;
     fold_open = "v";
     fold_closed = ">";
     indent_lines = false;

@@ -1,6 +1,11 @@
 {
   enable = true;
   modules = {
+    pairs = {
+      mappings = {
+        "'" = false;
+      };
+    };
     surround = {
       mappings = {
         add = "ys";

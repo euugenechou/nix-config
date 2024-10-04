@@ -24,7 +24,7 @@
         group = "+lsp";
       }
       {
-        __unkeyed-1 = "<leader>o";
+        __unkeyed-1 = "<leader>p";
         group = "+oil";
       }
       {

@@ -77,45 +77,27 @@
   # trouble
   {
     key = "<leader>tt";
+    action = "<cmd>Trouble diagnostics toggle filter.buf=0<cr>";
+    mode = ["n"];
+    options.desc = "buffer diagnostics";
+  }
+  {
+    key = "<leader>tT";
     action = "<cmd>Trouble diagnostics toggle<cr>";
     mode = ["n"];
-    options.desc = "diagnostics";
-  }
-  {
-    key = "<leader>tn";
-    action = "<cmd>TroubleRefresh<cr>";
-    mode = ["n"];
-    options.desc = "refresh diagnostics";
-  }
-  {
-    key = "<leader>tw";
-    action = "<cmd>Trouble workspace_diagnostics<cr>";
-    mode = ["n"];
-    options.desc = "workplace diagnostics";
-  }
-  {
-    key = "<leader>td";
-    action = "<cmd>Trouble document_diagnostics<cr>";
-    mode = ["n"];
-    options.desc = "document diagnostics";
-  }
-  {
-    key = "<leader>tq";
-    action = "<cmd>Trouble quickfix<cr>";
-    mode = ["n"];
-    options.desc = "quickfix diagnostics";
+    options.desc = "workspace diagnostics";
   }
   {
     key = "<leader>tl";
-    action = "<cmd>Trouble loclist<cr>";
+    action = "<cmd>Trouble loclist toggle<cr>";
     mode = ["n"];
-    options.desc = "loclist diagnostics";
+    options.desc = "location list";
   }
   {
-    key = "<leader>tr";
-    action = "<cmd>Trouble lsp_references<cr>";
+    key = "<leader>tq";
+    action = "<cmd>Trouble qflist toggle<cr>";
     mode = ["n"];
-    options.desc = "lsp references diagnostics";
+    options.desc = "quickfix list";
   }
   # bufferline
   {
@@ -210,5 +192,16 @@
     key = "<leader>ap";
     action = "<cmd>AerialPrev<cr>";
     options.desc = "jump to previous symbol";
+  }
+  # oil
+  {
+    key = "<leader>po";
+    action = "<cmd>Oil .<cr>";
+    options.desc = "open current directory";
+  }
+  {
+    key = "<leader>pp";
+    action = "<cmd>Oil<cr>";
+    options.desc = "open parent directory";
   }
 ]

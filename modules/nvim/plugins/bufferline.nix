@@ -1,5 +1,5 @@
 let
-  colors = import ../colors.nix;
+  palette = import ../palette.nix;
 in {
   enable = true;
   settings = {
@@ -23,116 +23,116 @@ in {
       '';
     };
     highlights = {
-      fill = {bg = colors.dark_blue;};
+      fill = {bg = palette.dark_blue;};
       background = {
-        fg = colors.gray;
-        bg = colors.dark_blue;
+        fg = palette.gray;
+        bg = palette.dark_blue;
       };
       tab = {
-        fg = colors.gray;
-        bg = colors.dark_blue;
+        fg = palette.gray;
+        bg = palette.dark_blue;
       };
       tab_selected = {
-        fg = colors.fg;
-        bg = colors.dark_blue;
+        fg = palette.fg;
+        bg = palette.dark_blue;
       };
       tab_separator = {
-        fg = colors.dark_blue;
-        bg = colors.dark_blue;
+        fg = palette.dark_blue;
+        bg = palette.dark_blue;
       };
       tab_separator_selected = {
-        fg = colors.dark_blue;
-        bg = colors.dark_blue;
+        fg = palette.dark_blue;
+        bg = palette.dark_blue;
       };
       tab_close = {
-        fg = colors.red;
-        bg = colors.dark_blue;
+        fg = palette.red;
+        bg = palette.dark_blue;
       };
-      close_button = {bg = colors.dark_blue;};
-      close_button_visible = {bg = colors.dark_blue;};
-      close_button_selected = {bg = colors.dark_blue;};
+      close_button = {bg = palette.dark_blue;};
+      close_button_visible = {bg = palette.dark_blue;};
+      close_button_selected = {bg = palette.dark_blue;};
       buffer_visible = {
-        fg = colors.gray;
-        bg = colors.dark_blue;
+        fg = palette.gray;
+        bg = palette.dark_blue;
       };
       buffer_selected = {
-        fg = colors.fg;
-        bg = colors.dark_blue;
+        fg = palette.fg;
+        bg = palette.dark_blue;
         bold = true;
         italic = false;
       };
-      numbers = {fg = colors.gray;};
-      numbers_visible = {fg = colors.gray;};
-      numbers_selected = {fg = colors.fg;};
-      diagnostic = {bg = colors.dark_blue;};
-      diagnostic_visible = {bg = colors.dark_blue;};
-      diagnostic_selected = {bg = colors.dark_blue;};
-      hint = {bg = colors.dark_blue;};
-      hint_visible = {bg = colors.dark_blue;};
-      hint_selected = {bg = colors.dark_blue;};
-      hint_diagnostic = {bg = colors.dark_blue;};
-      hint_diagnostic_visible = {bg = colors.dark_blue;};
-      hint_diagnostic_selected = {bg = colors.dark_blue;};
-      info = {bg = colors.dark_blue;};
-      info_visible = {bg = colors.dark_blue;};
-      info_selected = {bg = colors.dark_blue;};
-      info_diagnostic = {bg = colors.dark_blue;};
-      info_diagnostic_visible = {bg = colors.dark_blue;};
-      info_diagnostic_selected = {bg = colors.dark_blue;};
-      warning = {bg = colors.dark_blue;};
-      warning_visible = {bg = colors.dark_blue;};
-      warning_selected = {bg = colors.dark_blue;};
-      warning_diagnostic = {bg = colors.dark_blue;};
-      warning_diagnostic_visible = {bg = colors.dark_blue;};
-      warning_diagnostic_selected = {bg = colors.dark_blue;};
-      error = {bg = colors.dark_blue;};
-      error_visible = {bg = colors.dark_blue;};
-      error_selected = {bg = colors.dark_blue;};
-      error_diagnostic = {bg = colors.dark_blue;};
-      error_diagnostic_visible = {bg = colors.dark_blue;};
-      error_diagnostic_selected = {bg = colors.dark_blue;};
-      modified = {bg = colors.dark_blue;};
-      modified_visible = {bg = colors.dark_blue;};
-      modified_selected = {bg = colors.dark_blue;};
+      numbers = {fg = palette.gray;};
+      numbers_visible = {fg = palette.gray;};
+      numbers_selected = {fg = palette.fg;};
+      diagnostic = {bg = palette.dark_blue;};
+      diagnostic_visible = {bg = palette.dark_blue;};
+      diagnostic_selected = {bg = palette.dark_blue;};
+      hint = {bg = palette.dark_blue;};
+      hint_visible = {bg = palette.dark_blue;};
+      hint_selected = {bg = palette.dark_blue;};
+      hint_diagnostic = {bg = palette.dark_blue;};
+      hint_diagnostic_visible = {bg = palette.dark_blue;};
+      hint_diagnostic_selected = {bg = palette.dark_blue;};
+      info = {bg = palette.dark_blue;};
+      info_visible = {bg = palette.dark_blue;};
+      info_selected = {bg = palette.dark_blue;};
+      info_diagnostic = {bg = palette.dark_blue;};
+      info_diagnostic_visible = {bg = palette.dark_blue;};
+      info_diagnostic_selected = {bg = palette.dark_blue;};
+      warning = {bg = palette.dark_blue;};
+      warning_visible = {bg = palette.dark_blue;};
+      warning_selected = {bg = palette.dark_blue;};
+      warning_diagnostic = {bg = palette.dark_blue;};
+      warning_diagnostic_visible = {bg = palette.dark_blue;};
+      warning_diagnostic_selected = {bg = palette.dark_blue;};
+      error = {bg = palette.dark_blue;};
+      error_visible = {bg = palette.dark_blue;};
+      error_selected = {bg = palette.dark_blue;};
+      error_diagnostic = {bg = palette.dark_blue;};
+      error_diagnostic_visible = {bg = palette.dark_blue;};
+      error_diagnostic_selected = {bg = palette.dark_blue;};
+      modified = {bg = palette.dark_blue;};
+      modified_visible = {bg = palette.dark_blue;};
+      modified_selected = {bg = palette.dark_blue;};
       duplicate = {
-        fg = colors.gray;
-        bg = colors.dark_blue;
+        fg = palette.gray;
+        bg = palette.dark_blue;
       };
       duplicate_visible = {
-        fg = colors.gray;
-        bg = colors.dark_blue;
+        fg = palette.gray;
+        bg = palette.dark_blue;
       };
       duplicate_selected = {
-        fg = colors.magenta;
-        bg = colors.dark_blue;
+        fg = palette.magenta;
+        bg = palette.dark_blue;
       };
       separator_selected = {
-        fg = colors.dark_blue;
-        bg = colors.dark_blue;
+        fg = palette.dark_blue;
+        bg = palette.dark_blue;
       };
       separator_visible = {
-        fg = colors.dark_blue;
-        bg = colors.dark_blue;
+        fg = palette.dark_blue;
+        bg = palette.dark_blue;
       };
       separator = {
-        fg = colors.dark_blue;
-        bg = colors.dark_blue;
+        fg = palette.dark_blue;
+        bg = palette.dark_blue;
       };
       indicator_visible = {
-        fg = colors.dark_blue;
-        bg = colors.dark_blue;
+        fg = palette.dark_blue;
+        bg = palette.dark_blue;
       };
       indicator_selected = {
-        fg = colors.dark_blue;
-        bg = colors.dark_blue;
+        fg = palette.dark_blue;
+        bg = palette.dark_blue;
       };
-      pick_selected = {bg = colors.dark_blue;};
-      pick_visible = {bg = colors.dark_blue;};
-      pick = {bg = colors.dark_blue;};
-      offset_separator = {bg = colors.dark_blue;};
+      pick_selected = {bg = palette.dark_blue;};
+      pick_visible = {bg = palette.dark_blue;};
+      pick = {bg = palette.dark_blue;};
+      offset_separator = {bg = palette.dark_blue;};
       trunc_marker = {
-        fg = colors.fg;
-        bg = colors.dark_blue;
+        fg = palette.fg;
+        bg = palette.dark_blue;
       };
     };
   };
