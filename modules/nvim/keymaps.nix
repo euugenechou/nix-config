@@ -195,13 +195,19 @@
   }
   # oil
   {
-    key = "<leader>po";
+    key = "<leader>oo";
     action = "<cmd>Oil .<cr>";
     options.desc = "open current directory";
   }
   {
-    key = "<leader>pp";
+    key = "<leader>op";
     action = "<cmd>Oil<cr>";
     options.desc = "open parent directory";
+  }
+  # neo-tree
+  {
+    key = "<leader>po";
+    action = "<cmd>Neotree toggle<cr>";
+    options.desc = "toggle directory tree";
   }
 ]

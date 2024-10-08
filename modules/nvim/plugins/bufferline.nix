@@ -9,7 +9,7 @@ in {
       show_tab_indicators = true;
       offsets = [
         {
-          filetype = "NvimTree";
+          filetype = "neo-tree";
           text = "";
           text_align = "center";
         }

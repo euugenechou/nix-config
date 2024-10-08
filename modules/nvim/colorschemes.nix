@@ -6,7 +6,7 @@ in {
     settings = {
       flavour = "mocha";
       no_italic = true;
-      no_bold = false;
+      no_bold = true;
       no_underline = true;
       integrations = {
         aerial = true;
@@ -52,12 +52,17 @@ in {
       custom_highlights.__raw = ''
         function(colors)
           return {
-            CmpItemMenu = { fg = colors.surface2 },
+            Comment = { fg = colors.surface2 },
             CursorLineNr = { fg = colors.text },
-            FloatBorder = { bg = colors.base, fg = colors.surface0 },
-            GitSignsChange = { fg = colors.peach },
+            FloatBorder = { fg = colors.surface0, bg = colors.base },
             LineNr = { fg = colors.overlay0 },
             LspInfoBorder = { link = "FloatBorder" },
+            NormalFloat = { bg = colors.base },
+            Pmenu = { fg = "", bg = colors.mantle },
+            PmenuSel = { fg = "", bg = colors.surface0 },
+            VertSplit = { fg = colors.surface0, bg = colors.base },
+            Visual = { fg = "", bg = colors.surface0 },
+
             NeoTreeDirectoryIcon = { fg = colors.subtext1 },
             NeoTreeDirectoryName = { fg = colors.subtext1 },
             NeoTreeFloatBorder = { link = "TelescopeResultsBorder" },
@@ -77,30 +82,31 @@ in {
             NeoTreeTabSeparatorActive = { fg = colors.mantle, bg = colors.mantle },
             NeoTreeTabSeparatorInactive = { fg = colors.crust, bg = colors.crust },
             NeoTreeWinSeparator = { fg = colors.base, bg = colors.base },
-            NormalFloat = { bg = colors.base },
-            Pmenu = { bg = colors.mantle, fg = "" },
-            PmenuSel = { bg = colors.surface0, fg = "" },
-            TelescopePreviewBorder = { bg = colors.crust, fg = colors.crust },
+
+            TelescopePreviewBorder = { fg = colors.crust, bg = colors.crust },
             TelescopePreviewNormal = { bg = colors.crust },
             TelescopePreviewTitle = { fg = colors.crust, bg = colors.crust },
             TelescopePreviewLine = { bg = colors.surface0 },
-            TelescopePromptBorder = { bg = colors.surface0, fg = colors.surface0 },
+            TelescopePromptBorder = { fg = colors.surface0, bg = colors.surface0 },
             TelescopePromptCounter = { fg = colors.text },
             TelescopePromptNormal = { bg = colors.surface0 },
             TelescopePromptPrefix = { bg = colors.surface0 },
             TelescopePromptTitle = { fg = colors.surface0, bg = colors.surface0 },
-            TelescopeResultsBorder = { bg = colors.mantle, fg = colors.mantle },
+            TelescopeResultsBorder = { fg = colors.mantle, bg = colors.mantle },
             TelescopeResultsNormal = { bg = colors.mantle },
             TelescopeResultsTitle = { fg = colors.mantle, bg = colors.mantle },
             TelescopeSelection = { bg = colors.surface0 },
             TelescopeSelectionCaret = { fg = colors.red, bg = colors.surface0 },
-            VertSplit = { bg = colors.base, fg = colors.surface0 },
-            WhichKeyFloat = { bg = colors.mantle },
-            YankHighlight = { bg = colors.surface2 },
-            FidgetTask = { fg = colors.subtext2 },
-            FidgetTitle = { fg = colors.peach },
+
             TroubleCount = { fg = colors.text, bg = colors.surface0 },
             TroublePreview = { bg = colors.surface0 },
+
+            CmpItemMenu = { fg = colors.surface2 },
+            FidgetTask = { fg = colors.subtext2 },
+            FidgetTitle = { fg = colors.peach },
+            GitSignsChange = { fg = colors.peach },
+            WhichKeyFloat = { bg = colors.mantle },
+            YankHighlight = { bg = colors.surface2 },
 
             IblIndent = { fg = colors.surface0 },
             IblScope = { fg = colors.overlay0 },
@@ -143,7 +149,7 @@ in {
             TSComment = { link = "Comment" },
             TSConditional = { fg = colors.red },
             TSConstBuiltin = { fg = colors.blue },
-            TSConstMacro = { fg = colors.blue },
+            TSConstMacro = { fg = colors.green },
             TSConstant = { fg = colors.blue },
             TSConstructor = { fg = colors.green },
             TSDebug = { link = "Debug" },
@@ -155,7 +161,7 @@ in {
             TSField = { fg = colors.text },
             TSFloat = { fg = colors.mauve },
             TSFuncBuiltin = { fg = colors.green },
-            TSFuncMacro = { fg = colors.blue },
+            TSFuncMacro = { fg = colors.green },
             TSFunction = { fg = colors.green },
             TSFunctionCall = { fg = colors.green },
             TSInclude = { fg = colors.red },
@@ -178,7 +184,7 @@ in {
             TSProperty = { fg = colors.text },
             TSPunctBracket = { fg = colors.text },
             TSPunctDelimiter = { link = "Delimiter" },
-            TSPunctSpecial = { fg = colors.text },
+            TSPunctSpecial = { fg = colors.mauve },
             TSRepeat = { fg = colors.red },
             TSStorageClass = { fg = colors.red },
             TSStorageClassLifetime = { fg = colors.red },

@@ -7,7 +7,7 @@
   imports = [./common.nix];
 
   home = {
-    stateVersion = "23.05";
+    stateVersion = "24.05";
 
     packages = with pkgs; [
       alejandra
