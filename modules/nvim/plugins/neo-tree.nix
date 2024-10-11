@@ -16,4 +16,8 @@
       forceVisibleInEmptyFolder = true;
     };
   };
+  window = {
+    autoExpandWidth = true;
+    width = 30;
+  };
 }

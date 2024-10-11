@@ -23,7 +23,6 @@
       "aerospace"
       "alacritty"
       "anki"
-      "docker"
       "discord"
       "firefox"
       "font-fira-code-nerd-font"
@@ -32,6 +31,7 @@
       "ghidra"
       "google-chrome"
       "iina"
+      "iterm2"
       "macfuse"
       "mactex"
       "mgba"
@@ -43,6 +43,7 @@
       "temurin"
       "utm"
       "visual-studio-code"
+      "wezterm"
       "zoom"
       "zotero"
     ];
