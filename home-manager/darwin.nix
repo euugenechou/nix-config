@@ -19,8 +19,10 @@
       eza
       fd
       ghc
+      ghostscript
       glances
       idris2
+      imagemagick
       lilypond
       neofetch
       nixfmt-classic
