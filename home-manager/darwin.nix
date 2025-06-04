@@ -52,7 +52,7 @@
       yt-dlp
       zig
       inputs.pwndbg.packages.${pkgs.system}.pwndbg-lldb
-      inputs.verusfmt.packages.${pkgs.system}
+      inputs.verusfmt.packages.${pkgs.system}.verusfmt
     ];
 
     file = {

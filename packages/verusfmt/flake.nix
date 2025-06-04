@@ -16,18 +16,20 @@
         pkgs = import nixpkgs {inherit system;};
         rustPlatform = pkgs.rustPlatform;
       in {
-        packages.verusfmt = rustPlatform.buildRustPackage {
+        packages.verusfmt = rustPlatform.buildRustPackage rec {
           pname = "verusfmt";
           version = "0.5.7";
 
           src = pkgs.fetchFromGitHub {
             owner = "verus-lang";
             repo = "verusfmt";
-            rev = "v0.5.7";
-            sha256 = "0000000000000000000000000000000000000000000000000000";
+            rev = "refs/tags/v${version}";
+            sha256 = "sha256-qsJOJs1im4Alzp3Jw9TMsTTBlrBLCL30vE27/QUjVOk=";
           };
 
-          cargoHash = "0000000000000000000000000000000000000000000000000000";
+          cargoHash = "sha256-ZQWNEyJdG5CFUvpd27HbXEuTPw4c/3vVA2GbquVTAHw=";
+
+          nativeBuildInputs = [pkgs.rustfmt];
         };
 
         defaultPackage = self.packages.${system}.verusfmt;
