@@ -1,4 +1,5 @@
 {
+  inputs,
   config,
   pkgs,
   lib,
@@ -13,24 +14,45 @@
       alejandra
       bat
       bear
+      btop
       cabal-install
       clang-tools
+      cmake
+      dafny
       dust
       eza
+      gitflow
       fd
+      fontconfig
+      fselect
       ghc
       ghostscript
       glances
+      glow
+      go
+      graphviz
       idris2
       imagemagick
-      lilypond
+      iperf
+      lilypond-unstable
+      moreutils
       neofetch
       nixfmt-classic
+      pkg-config
+      python311
+      pyright
       radare2
       ripgrep
+      ruff
       rustup
       tmux
+      typst
+      uv
+      wget
       yt-dlp
+      zig
+      inputs.pwndbg.packages.${pkgs.system}.pwndbg-lldb
+      inputs.verusfmt.packages.${pkgs.system}
     ];
 
     file = {
@@ -80,15 +102,26 @@
       ll = "eza -l";
       la = "eza -a";
       l = "eza -la";
-      yt-m4a = "yt-dlp -f ba[ext=m4a]";
+      yt-m4a = "yt-dlp -f ba\[ext=m4a\]";
       zshsrc = "source ~/.zshrc";
     };
-    initExtra = ''
-      eval "$(/opt/homebrew/bin/brew shellenv)"
+    initContent = ''
+      if [[ -z "$HOMEBREW_PREFIX" ]]; then
+        PRE_BREW_PATH=$PATH
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+        export PATH=$PRE_BREW_PATH:$PATH
+      fi
+
       export PATH=$PATH:/Library/Tex/texbin
+      export PATH=$PATH:$HOME/go/bin
+      export PATH=$PATH:$HOME/.local/bin
+
       export MANPATH=$MANPATH:/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/share/man
       export MANPATH=$MANPATH:/Library/Developer/CommandLineTools/usr/share/man
       export MANPATH=$MANPATH:/Library/Developer/CommandLineTools/Toolchains/XcodeDefault.xctoolchain/usr/share/man
+
+      export SSH_AUTH_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+
       less_termcap[so]="''${fg_bold[249]}"
     '';
   };

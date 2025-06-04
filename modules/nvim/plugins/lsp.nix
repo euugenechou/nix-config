@@ -49,6 +49,19 @@
     hls = {
       enable = true;
       autostart = true;
+      installGhc = false;
+    };
+    ruff = {
+      enable = true;
+      autostart = true;
+    };
+    pyright = {
+      enable = true;
+      autostart = true;
+    };
+    zls = {
+      enable = true;
+      autostart = true;
     };
   };
 }

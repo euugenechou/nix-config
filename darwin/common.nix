@@ -3,8 +3,7 @@
   pkgs,
   ...
 }: {
-  services.nix-daemon.enable = true;
-
+  nix.enable = false;
   nix.settings.experimental-features = "nix-command flakes";
 
   programs.zsh.enable = true;
@@ -20,6 +19,7 @@
     taps = ["nikitabobko/tap"];
     brews = [];
     casks = [
+      "1password-cli"
       "aerospace"
       "alacritty"
       "anki"
@@ -29,12 +29,18 @@
       "font-hack-nerd-font"
       "flux"
       "ghidra"
+      "ghostty"
       "google-chrome"
       "iina"
       "iterm2"
+      {
+        name = "librewolf";
+        args.no_quarantine = true;
+      }
       "macfuse"
       "mactex"
       "mgba"
+      "obsidian"
       "r"
       "rstudio"
       "skim"
@@ -44,12 +50,13 @@
       "utm"
       "visual-studio-code"
       "wezterm"
+      "xquartz"
       "zoom"
       "zotero"
     ];
   };
 
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   system = {
     defaults.NSGlobalDomain.NSWindowShouldDragOnGesture = true;

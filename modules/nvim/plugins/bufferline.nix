@@ -1,7 +1,7 @@
 let
   palette = import ../palette.nix;
 in {
-  enable = true;
+  enable = false;
   settings = {
     options = {
       show_buffer_icons = true;

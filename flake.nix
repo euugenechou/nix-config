@@ -18,6 +18,16 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    pwndbg = {
+      url = "github:pwndbg/pwndbg";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    verusfmt = {
+      url = "path:./packages/verusfmt";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -25,7 +35,7 @@
     nix-darwin,
     nixpkgs,
     home-manager,
-    nixvim,
+    ...
   }: let
     mkDarwin = config:
       nix-darwin.lib.darwinSystem {

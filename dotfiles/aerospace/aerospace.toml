@@ -228,7 +228,7 @@ esc = 'mode main'
 
 # exec: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
 a = ['exec-and-forget open -a "Alacritty"', 'mode main']
-s = ['exec-and-forget open -a "Safari"', 'mode main']
+s = ['exec-and-forget open -a "Firefox"', 'mode main']
 d = ['exec-and-forget open -a "Discord"', 'mode main']
 m = ['exec-and-forget open -a "Messages"', 'mode main']
 l = ['exec-and-forget open -a "Slack"', 'mode main']
