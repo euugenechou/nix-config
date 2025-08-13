@@ -14,11 +14,15 @@
       alejandra
       bat
       bear
+      bfg-repo-cleaner
+      black
       btop
       cabal-install
       clang-tools
+      claude-code
       cmake
       dafny
+      dart
       dust
       eza
       gitflow
@@ -31,21 +35,24 @@
       glow
       go
       graphviz
+      htop
       idris2
       imagemagick
       iperf
-      lilypond-unstable
+      # lilypond-unstable
       moreutils
       neofetch
       nixfmt-classic
       pkg-config
-      python311
+      poetry
       pyright
+      python311
       radare2
       ripgrep
       ruff
       rustup
       tmux
+      tokei
       typst
       uv
       wget

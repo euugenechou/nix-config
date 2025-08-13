@@ -41,6 +41,7 @@
       "mactex"
       "mgba"
       "obsidian"
+      "protonvpn"
       "r"
       "rstudio"
       "skim"
@@ -59,6 +60,7 @@
   security.pam.services.sudo_local.touchIdAuth = true;
 
   system = {
+    primaryUser = "eugene";
     defaults.NSGlobalDomain.NSWindowShouldDragOnGesture = true;
     configurationRevision = self.rev or self.dirtyRev or null;
     stateVersion = 5;

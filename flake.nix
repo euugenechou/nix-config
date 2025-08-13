@@ -24,10 +24,20 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    verus = {
+      url = "path:./packages/verus";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     verusfmt = {
       url = "path:./packages/verusfmt";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # homr = {
+    #   url = "path:./packages/homr";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
 
   outputs = inputs @ {
@@ -56,7 +66,9 @@
       };
     mkServer = system: username:
       home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {inherit system;};
+        pkgs = import nixpkgs {
+          inherit system;
+        };
         extraSpecialArgs = {
           inherit inputs;
           inherit username;

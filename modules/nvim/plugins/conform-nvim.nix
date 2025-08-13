@@ -4,6 +4,7 @@
     formatters_by_ft = {
       c = ["clang_format"];
       cpp = ["clang_format"];
+      python = ["black"];
       nix = ["alejandra"];
       rust = ["rustfmt"];
       "_" = [

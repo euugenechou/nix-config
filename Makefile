@@ -14,6 +14,10 @@ home:
 home-setup:
 	nix run home-manager --extra-experimental-features nix-command --extra-experimental-features flakes -- switch --flake .
 
+.PHONY: update
+update:
+	nix flake update
+
 .PHONY: clean
 clean:
 	nix-collect-garbage -d
