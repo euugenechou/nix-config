@@ -1,6 +1,6 @@
 .PHONY: darwin
 darwin:
-	darwin-rebuild switch --show-trace --option eval-cache false --flake .
+	sudo darwin-rebuild switch --show-trace --option eval-cache false --flake .
 
 .PHONY: darwin-setup
 darwin-setup:
