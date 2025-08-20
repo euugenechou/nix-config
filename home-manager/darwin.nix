@@ -47,6 +47,7 @@
       poetry
       pyright
       python311
+      qemu
       radare2
       ripgrep
       ruff
