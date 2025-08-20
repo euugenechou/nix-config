@@ -64,6 +64,24 @@
           }
         ];
       };
+    mkNixos = system: hostname: username:
+      nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [
+          ./hosts/${hostname}/configuration.nix
+          ./hosts/${hostname}/hardware-configuration.nix
+          home-manager.nixosModules.home-manager 
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              verbose = true;
+              extraSpecialArgs = {inherit inputs username;};
+              users.${username} = import ./home-manager/server.nix;
+            };
+          }
+        ];
+      };
     mkServer = system: username:
       home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {
@@ -76,6 +94,9 @@
         modules = [./home-manager/server.nix];
       };
   in {
+    nixosConfigurations = {
+      nixos = mkNixos "x86_64-linux" "nixos" "eugene";
+    };
     darwinConfigurations = {
       cosmocanyon = mkDarwin ./darwin/cosmocanyon.nix;
     };
