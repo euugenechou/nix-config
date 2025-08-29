@@ -34,12 +34,14 @@
       glances
       glow
       go
+      gradle
       graphviz
       htop
       idris2
       imagemagick
       iperf
       # lilypond-unstable
+      maven
       moreutils
       neofetch
       nixfmt-classic

@@ -1,6 +1,12 @@
 let
   palette = import ./palette.nix;
 in {
+  ayu = {
+    enable = false;
+    settings = {
+      mirage = true;
+    };
+  };
   catppuccin = {
     enable = true;
     settings = {
