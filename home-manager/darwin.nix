@@ -82,6 +82,10 @@
         source = ../dotfiles/alacritty;
         recursive = true;
       };
+      "${config.xdg.configHome}/ghostty" = {
+        source = ../dotfiles/ghostty;
+        recursive = true;
+      };
     };
   };
 
