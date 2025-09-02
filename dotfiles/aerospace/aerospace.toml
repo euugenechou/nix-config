@@ -81,139 +81,96 @@ outer.right = 10
 # 'main' binding mode declaration (must be present)
 # see: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.main.binding]
+ctrl-space = 'mode alt'
 
-# see: https://nikitabobko.github.io/AeroSpace/commands#workspace
-ctrl-1 = 'workspace 1'
-ctrl-2 = 'workspace 2'
-ctrl-3 = 'workspace 3'
-ctrl-4 = 'workspace 4'
-ctrl-5 = 'workspace 5'
-ctrl-6 = 'workspace 6'
-ctrl-7 = 'workspace 7'
-ctrl-8 = 'workspace 8'
-ctrl-9 = 'workspace 9'
-alt-a = 'workspace A'
-alt-b = 'workspace B'
-alt-c = 'workspace C'
-alt-d = 'workspace D'
-alt-e = 'workspace E'
-alt-f = 'workspace F'
-alt-g = 'workspace G'
-alt-i = 'workspace I'
-alt-m = 'workspace M'
-alt-n = 'workspace N'
-alt-o = 'workspace O'
-alt-p = 'workspace P'
-alt-q = 'workspace Q'
-alt-r = 'workspace R'
-alt-s = 'workspace S'
-alt-t = 'workspace T'
-alt-u = 'workspace U'
-alt-v = 'workspace V'
-alt-w = 'workspace W'
-alt-x = 'workspace X'
-alt-y = 'workspace Y'
-alt-z = 'workspace Z'
-
-# moving: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-ctrl-cmd-1 = 'move-node-to-workspace 1'
-ctrl-cmd-2 = 'move-node-to-workspace 2'
-ctrl-cmd-3 = 'move-node-to-workspace 3'
-ctrl-cmd-4 = 'move-node-to-workspace 4'
-ctrl-cmd-5 = 'move-node-to-workspace 5'
-ctrl-cmd-6 = 'move-node-to-workspace 6'
-ctrl-cmd-7 = 'move-node-to-workspace 7'
-ctrl-cmd-8 = 'move-node-to-workspace 8'
-ctrl-cmd-9 = 'move-node-to-workspace 9'
-alt-cmd-a = 'move-node-to-workspace A'
-alt-cmd-b = 'move-node-to-workspace B'
-alt-cmd-c = 'move-node-to-workspace C'
-alt-cmd-d = 'move-node-to-workspace D'
-alt-cmd-e = 'move-node-to-workspace E'
-alt-cmd-f = 'move-node-to-workspace F'
-alt-cmd-g = 'move-node-to-workspace G'
-alt-cmd-i = 'move-node-to-workspace I'
-alt-cmd-m = 'move-node-to-workspace M'
-alt-cmd-n = 'move-node-to-workspace N'
-alt-cmd-o = 'move-node-to-workspace O'
-alt-cmd-p = 'move-node-to-workspace P'
-alt-cmd-q = 'move-node-to-workspace Q'
-alt-cmd-r = 'move-node-to-workspace R'
-alt-cmd-s = 'move-node-to-workspace S'
-alt-cmd-t = 'move-node-to-workspace T'
-alt-cmd-u = 'move-node-to-workspace U'
-alt-cmd-v = 'move-node-to-workspace V'
-alt-cmd-w = 'move-node-to-workspace W'
-alt-cmd-x = 'move-node-to-workspace X'
-alt-cmd-y = 'move-node-to-workspace Y'
-alt-cmd-z = 'move-node-to-workspace Z'
-
-# See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
-ctrl-cmd-semicolon = 'workspace-back-and-forth'
-# See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
-shift-cmd-semicolon = 'move-workspace-to-monitor --wrap-around next'
-
-# See: https://nikitabobko.github.io/AeroSpace/commands#mode
-ctrl-cmd-r = 'mode service'
-ctrl-cmd-w = 'mode windows'
-ctrl-cmd-m = 'mode monitors'
-ctrl-cmd-f = 'mode layouts'
-ctrl-cmd-d = 'mode applications'
-
-# 'service' binding mode declaration.
-# See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
-[mode.service.binding]
-esc = ['reload-config', 'mode main'] # reload config
+[mode.alt.binding]
+space = 'mode main'
+semicolon = ['reload-config', 'mode main']
 backspace = ['close-all-windows-but-current', 'mode main']
 
-# sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
-#s = ['layout sticky tiling', 'mode main']
+# See: https://nikitabobko.github.io/AeroSpace/commands#mode
+r = 'mode resize'
+w = 'mode workspace'
+t = 'mode tiling'
+a = 'mode applications'
 
-[mode.windows.binding]
-esc = 'mode main'
+# see: https://nikitabobko.github.io/AeroSpace/commands#workspace
+1 = 'workspace 1'
+2 = 'workspace 2'
+3 = 'workspace 3'
+4 = 'workspace 4'
+5 = 'workspace 5'
+6 = 'workspace 6'
+7 = 'workspace 7'
+8 = 'workspace 8'
+9 = 'workspace 9'
 
-# rebalancing: https://nikitabobko.github.io/AeroSpace/commands#balance-sizes
-equal = ['balance-sizes', 'mode main']
+# moving: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
+shift-1 = 'move-node-to-workspace 1'
+shift-2 = 'move-node-to-workspace 2'
+shift-3 = 'move-node-to-workspace 3'
+shift-4 = 'move-node-to-workspace 4'
+shift-5 = 'move-node-to-workspace 5'
+shift-6 = 'move-node-to-workspace 6'
+shift-7 = 'move-node-to-workspace 7'
+shift-8 = 'move-node-to-workspace 8'
+shift-9 = 'move-node-to-workspace 9'
 
 # focusing: https://nikitabobko.github.io/AeroSpace/commands#focus
-h = ['focus left', 'mode main']
-j = ['focus down', 'mode main']
-k = ['focus up', 'mode main']
-l = ['focus right', 'mode main']
+h = 'focus left'
+j = 'focus down'
+k = 'focus up'
+l = 'focus right'
 
 # moving: https://nikitabobko.github.io/AeroSpace/commands#move
-ctrl-h = ['move left', 'mode main']
-ctrl-j = ['move down', 'mode main']
-ctrl-k = ['move up', 'mode main']
-ctrl-l = ['move right', 'mode main']
+shift-h = 'move left'
+shift-j = 'move down'
+shift-k = 'move up'
+shift-l = 'move right'
 
 # joining
-shift-h = ['join-with left', 'mode main']
-shift-j = ['join-with down', 'mode main']
-shift-k = ['join-with up', 'mode main']
-shift-l = ['join-with right', 'mode main']
+ctrl-h = 'join-with left'
+ctrl-j = 'join-with down'
+ctrl-k = 'join-with up'
+ctrl-l = 'join-with right'
+
+[mode.resize.binding]
+space = 'mode main'
 
 # resizing: https://nikitabobko.github.io/AeroSpace/commands#resize
-shift-minus = ['resize smart -50', 'mode main']
-shift-equal = ['resize smart +50', 'mode main']
+j = 'resize smart -50'
+k = 'resize smart +50'
 
-[mode.monitors.binding]
-esc = 'mode main'
+# rebalancing: https://nikitabobko.github.io/AeroSpace/commands#balance-sizes
+equal = 'balance-sizes'
+
+[mode.workspace.binding]
+space = 'mode main'
 
 # focusing: https://nikitabobko.github.io/AeroSpace/commands#focus-monitor
-h = ['focus-monitor left', 'mode main']
-j = ['focus-monitor down', 'mode main']
-k = ['focus-monitor up', 'mode main']
-l = ['focus-monitor right', 'mode main']
+h = 'focus-monitor left'
+j = 'focus-monitor down'
+k = 'focus-monitor up'
+l = 'focus-monitor right'
 
 # moving: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-monitor
-ctrl-h = ['move-node-to-monitor left', 'focus-monitor left', 'mode main']
-ctrl-j = ['move-node-to-monitor down', 'focus-monitor down', 'mode main']
-ctrl-k = ['move-node-to-monitor up', 'focus-monitor up', 'mode main']
-ctrl-l = ['move-node-to-monitor right', 'focus-monitor right', 'mode main']
+shift-h = ['move-node-to-monitor left', 'focus-monitor left']
+shift-j = ['move-node-to-monitor down', 'focus-monitor down']
+shift-k = ['move-node-to-monitor up', 'focus-monitor up']
+shift-l = ['move-node-to-monitor right', 'focus-monitor right']
 
-[mode.layouts.binding]
-esc = 'mode main'
+# See: https://nikitabobko.github.io/AeroSpace/commands#workspace
+o = 'workspace prev'
+i = 'workspace next'
+shift-o = 'move-node-to-workspace prev'
+shift-i = 'move-node-to-workspace next'
+
+# See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
+shift-p = 'move-workspace-to-monitor prev'
+shift-n = 'move-workspace-to-monitor next'
+
+[mode.tiling.binding]
+space = 'mode main'
 
 # see: https://nikitabobko.github.io/AeroSpace/commands#flatten-workspace-tree
 r = ['flatten-workspace-tree', 'mode main'] # reset layout
@@ -223,8 +180,11 @@ f = ['layout floating tiling', 'mode main'] # toggle floating/tiling layout
 t = ['layout tiles horizontal vertical', 'mode main']
 a = ['layout accordion horizontal vertical', 'mode main']
 
+# sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
+#s = ['layout sticky tiling', 'mode main']
+
 [mode.applications.binding]
-esc = 'mode main'
+space = 'mode main'
 
 # exec: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
 a = ['exec-and-forget open -a "Alacritty"', 'mode main']
