@@ -51,7 +51,7 @@ inner.horizontal = 10
 inner.vertical = 10
 outer.left = 10
 outer.bottom = 10
-outer.top = 15
+outer.top = 10
 outer.right = 10
 
 # All possible keys:
@@ -83,6 +83,17 @@ outer.right = 10
 [mode.main.binding]
 ctrl-space = 'mode alt'
 
+# see: https://nikitabobko.github.io/AeroSpace/commands#workspace
+ctrl-1 = 'workspace 1'
+ctrl-2 = 'workspace 2'
+ctrl-3 = 'workspace 3'
+ctrl-4 = 'workspace 4'
+ctrl-5 = 'workspace 5'
+ctrl-6 = 'workspace 6'
+ctrl-7 = 'workspace 7'
+ctrl-8 = 'workspace 8'
+ctrl-9 = 'workspace 9'
+
 [mode.alt.binding]
 space = 'mode main'
 semicolon = ['reload-config', 'mode main']
@@ -93,17 +104,6 @@ r = 'mode resize'
 w = 'mode workspace'
 t = 'mode tiling'
 a = 'mode applications'
-
-# see: https://nikitabobko.github.io/AeroSpace/commands#workspace
-1 = 'workspace 1'
-2 = 'workspace 2'
-3 = 'workspace 3'
-4 = 'workspace 4'
-5 = 'workspace 5'
-6 = 'workspace 6'
-7 = 'workspace 7'
-8 = 'workspace 8'
-9 = 'workspace 9'
 
 # moving: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 shift-1 = 'move-node-to-workspace 1'
