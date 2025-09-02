@@ -1,2 +1,12 @@
-theme = ~/.config/ghostty/themes/one-monokai.conf
+shell-integration-features = false
+
+theme = one-monokai.conf
+
 font-family = FiraCode Nerd Font
+font-size = 13
+adjust-cell-height = 8
+
+window-padding-x = 20
+window-padding-y = 20
+
+macos-titlebar-style = hidden
