@@ -57,7 +57,11 @@
     ];
   };
 
-  security.pam.services.sudo_local.touchIdAuth = true;
+  security.pam.services.sudo_local = {
+    touchIdAuth = true;
+    watchIdAuth = true;
+    reattach = true;
+  };
 
   system = {
     primaryUser = "eugene";
