@@ -4,9 +4,10 @@
     formatters_by_ft = {
       c = ["clang_format"];
       cpp = ["clang_format"];
-      python = ["black"];
       nix = ["alejandra"];
+      python = ["black"];
       rust = ["rustfmt"];
+      scala = ["scalafmt"];
       "_" = [
         "squeeze_blanks"
         "trim_whitespace"

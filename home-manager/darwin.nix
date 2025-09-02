@@ -54,6 +54,8 @@
       ripgrep
       ruff
       rustup
+      sbt-with-scala-native
+      scalafmt
       tmux
       tokei
       typst
