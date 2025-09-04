@@ -33,11 +33,6 @@
       url = "path:./packages/verusfmt";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # homr = {
-    #   url = "path:./packages/homr";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
   };
 
   outputs = inputs @ {
@@ -47,9 +42,9 @@
     home-manager,
     ...
   }: let
-    mkDarwin = config:
+    mkDarwin = config: username:
       nix-darwin.lib.darwinSystem {
-        specialArgs = {inherit self;};
+        specialArgs = {inherit self username;};
         modules = [
           config
           home-manager.darwinModules.home-manager
@@ -59,25 +54,20 @@
               useUserPackages = true;
               verbose = true;
               extraSpecialArgs = {inherit inputs;};
-              users.eugene = import ./home-manager/darwin.nix;
+              users.${username} = import ./home-manager/darwin.nix;
             };
           }
         ];
       };
     mkServer = system: username:
       home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
-          inherit system;
-        };
-        extraSpecialArgs = {
-          inherit inputs;
-          inherit username;
-        };
+        pkgs = import nixpkgs {inherit system;};
+        extraSpecialArgs = {inherit inputs username;};
         modules = [./home-manager/server.nix];
       };
   in {
     darwinConfigurations = {
-      cosmocanyon = mkDarwin ./darwin/cosmocanyon.nix;
+      cosmocanyon = mkDarwin ./darwin/cosmocanyon.nix "eugene";
     };
     homeConfigurations = {
       "euchou@dennard" = mkServer "x86_64-linux" "euchou";
