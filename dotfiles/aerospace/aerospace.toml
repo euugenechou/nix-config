@@ -84,6 +84,7 @@ outer.right = 10
 ctrl-space = 'mode alt'
 
 [mode.alt.binding]
+esc = 'mode main'
 space = 'mode main'
 semicolon = ['reload-config', 'mode main']
 backspace = ['close-all-windows-but-current', 'mode main']
@@ -135,6 +136,7 @@ ctrl-k = ['join-with up', 'mode main']
 ctrl-l = ['join-with right', 'mode main']
 
 [mode.resize.binding]
+esc = 'mode main'
 space = 'mode main'
 
 # resizing: https://nikitabobko.github.io/AeroSpace/commands#resize
@@ -145,6 +147,7 @@ k = 'resize smart +50'
 equal = ['balance-sizes', 'mode main']
 
 [mode.workspace.binding]
+esc = 'mode main'
 space = 'mode main'
 
 # focusing: https://nikitabobko.github.io/AeroSpace/commands#focus-monitor
@@ -170,6 +173,7 @@ shift-p = ['move-workspace-to-monitor prev', 'mode main']
 shift-n = ['move-workspace-to-monitor next', 'mode main']
 
 [mode.tiling.binding]
+esc = 'mode main'
 space = 'mode main'
 
 # see: https://nikitabobko.github.io/AeroSpace/commands#flatten-workspace-tree
@@ -184,6 +188,7 @@ a = ['layout accordion horizontal vertical', 'mode main']
 #s = ['layout sticky tiling', 'mode main']
 
 [mode.applications.binding]
+esc = 'mode main'
 space = 'mode main'
 
 # exec: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
