@@ -39,35 +39,29 @@
     self,
     nix-darwin,
     nixpkgs,
+    nixvim,
     home-manager,
     ...
   }: let
-    mkDarwin = config: username:
+    mkDarwin = host:
       nix-darwin.lib.darwinSystem {
-        specialArgs = {inherit self username;};
+        specialArgs = {inherit self inputs;};
         modules = [
-          config
           home-manager.darwinModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              verbose = true;
-              extraSpecialArgs = {inherit inputs;};
-              users.${username} = import ./home-manager/darwin.nix;
-            };
-          }
+          ./hosts/${host}
         ];
       };
     mkServer = system: username:
       home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {inherit system;};
         extraSpecialArgs = {inherit inputs username;};
-        modules = [./home-manager/server.nix];
+        modules = [
+          ./home/server.nix
+        ];
       };
   in {
     darwinConfigurations = {
-      cosmocanyon = mkDarwin ./darwin/cosmocanyon.nix "eugene";
+      cosmocanyon = mkDarwin "cosmocanyon";
     };
     homeConfigurations = {
       "euchou@dennard" = mkServer "x86_64-linux" "euchou";

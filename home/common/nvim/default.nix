@@ -13,8 +13,6 @@
     };
   };
 in {
-  imports = [inputs.nixvim.homeModules.nixvim];
-
   programs.nixvim = {
     enable = true;
     enableMan = true;

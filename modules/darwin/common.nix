@@ -7,9 +7,15 @@
   nix.enable = false;
   nix.settings.experimental-features = "nix-command flakes";
 
-  programs.zsh.enable = true;
+  security.pam.services.sudo_local = {
+    touchIdAuth = true;
+    watchIdAuth = true;
+    reattach = true;
+  };
 
   environment.systemPackages = with pkgs; [git vim];
+
+  programs.zsh.enable = true;
 
   homebrew = {
     enable = true;
@@ -56,18 +62,5 @@
       "zoom"
       "zotero"
     ];
-  };
-
-  security.pam.services.sudo_local = {
-    touchIdAuth = true;
-    watchIdAuth = true;
-    reattach = true;
-  };
-
-  system = {
-    primaryUser = username;
-    defaults.NSGlobalDomain.NSWindowShouldDragOnGesture = true;
-    configurationRevision = self.rev or self.dirtyRev or null;
-    stateVersion = 5;
   };
 }
