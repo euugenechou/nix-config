@@ -13,14 +13,10 @@
     username = "${username}";
     homeDirectory = "/home/${username}";
 
-    packages = with pkgs; let
-      R-prime = rWrapper.override {
-        packages = with rPackages; [tidyverse httpgd languageserver];
-      };
-    in [
-      R-prime
+    packages = with pkgs; [
       alejandra
       bear
+      black
       clang-tools
       dust
       eza

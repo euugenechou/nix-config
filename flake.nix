@@ -24,11 +24,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    verus = {
-      url = "path:./packages/verus";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     verusfmt = {
       url = "path:./packages/verusfmt";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -64,9 +59,8 @@
       cosmocanyon = mkDarwin "cosmocanyon";
     };
     homeConfigurations = {
-      "euchou@dennard" = mkServer "x86_64-linux" "euchou";
-      "euchou@banana" = mkServer "x86_64-linux" "euchou";
-      "euchou@obliviate" = mkServer "aarch64-linux" "euchou";
+      "eugebe@dennard" = mkServer "x86_64-linux" "eugebe";
+      "eugebe@moore" = mkServer "x86_64-linux" "eugebe";
     };
   };
 }
