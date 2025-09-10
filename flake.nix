@@ -61,6 +61,7 @@
     homeConfigurations = {
       "eugebe@dennard" = mkServer "x86_64-linux" "eugebe";
       "eugebe@moore" = mkServer "x86_64-linux" "eugebe";
+      "eugebe@xenon" = mkServer "x86_64-linux" "eugebe";
     };
   };
 }

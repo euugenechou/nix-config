@@ -348,15 +348,14 @@
         ]
       },
       "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-sl4ptZGHC4CQGldTnVuSQuTFGHYXqKeGjfL6Qhdnr3A=",
         "path": "./packages/verusfmt",
         "type": "path"
       },
       "original": {
         "path": "./packages/verusfmt",
         "type": "path"
-      }
+      },
+      "parent": []
     }
   },
   "root": "root",
