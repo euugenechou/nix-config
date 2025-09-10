@@ -115,9 +115,9 @@
       b = "cd $OLDPWD";
       c = "clear";
       ls = "eza";
-      ll = "eza -l";
-      la = "eza -a";
-      l = "eza -la";
+      ll = "eza -l --group";
+      la = "eza -a --group";
+      l = "eza -la --group";
       yt-m4a = "yt-dlp -f ba\[ext=m4a\]";
       zshsrc = "source ~/.zshrc";
     };
