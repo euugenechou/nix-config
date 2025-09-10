@@ -41,27 +41,22 @@
     mkDarwin = host:
       nix-darwin.lib.darwinSystem {
         specialArgs = {inherit self inputs;};
-        modules = [
-          home-manager.darwinModules.home-manager
-          ./hosts/${host}
-        ];
+        modules = [home-manager.darwinModules.home-manager ./hosts/${host}];
       };
-    mkServer = system: username:
+    mkServer = system: username: host:
       home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {inherit system;};
         extraSpecialArgs = {inherit inputs username;};
-        modules = [
-          ./home/server.nix
-        ];
+        modules = [./hosts/${host}];
       };
   in {
     darwinConfigurations = {
       cosmocanyon = mkDarwin "cosmocanyon";
     };
     homeConfigurations = {
-      "eugebe@dennard" = mkServer "x86_64-linux" "eugebe";
-      "eugebe@moore" = mkServer "x86_64-linux" "eugebe";
-      "eugebe@xenon" = mkServer "x86_64-linux" "eugebe";
+      "eugebe@dennard" = mkServer "x86_64-linux" "eugebe" "dennard";
+      "eugebe@moore" = mkServer "x86_64-linux" "eugebe" "moore";
+      "eugebe@xenon" = mkServer "x86_64-linux" "eugebe" "xenon";
     };
   };
 }

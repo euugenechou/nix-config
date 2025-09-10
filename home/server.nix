@@ -4,7 +4,9 @@
   lib,
   username,
   ...
-}: {
+}: let
+  homeSessionVariables = "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh";
+in {
   imports = [./common];
 
   home = {
@@ -68,11 +70,8 @@
       ll = "eza -l";
       la = "eza -a";
       l = "eza -la";
-      zshsrc = "source ~/.zshrc";
+      zshsrc = "source $HOME/.zshrc";
     };
-    initExtra = ''
-      less_termcap[so]="''${fg_bold[249]}"
-    '';
   };
 
   programs.git = {
