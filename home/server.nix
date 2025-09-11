@@ -76,7 +76,10 @@
     enable = true;
     userName = "Eugene Chou";
     userEmail = "euchou@ucsc.edu";
-    ignores = [".DS_Store"];
+    ignores = [
+      ".direnv"
+      ".DS_Store"
+    ];
     aliases = {
       pushall = "!git remote | xargs -L1 git push --all";
       history = "!git log --pretty=format: --name-only --diff-filter=A | sort -u";
