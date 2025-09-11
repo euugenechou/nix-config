@@ -4,9 +4,7 @@
   lib,
   username,
   ...
-}: let
-  homeSessionVariables = "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh";
-in {
+}: {
   imports = [./common];
 
   home = {
@@ -98,5 +96,11 @@ in {
       gpg.format = "ssh";
       user.signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFBLps3u2eBfFN0b0CGTDLgtLAmYGdglShNsoXxXQX1j";
     };
+  };
+
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
   };
 }
