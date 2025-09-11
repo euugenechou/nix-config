@@ -1,4 +1,5 @@
 {
+  aerial = import ./aerial.nix;
   barbecue = import ./barbecue.nix;
   cmp = import ./cmp.nix;
   cmp-buffer.enable = true;

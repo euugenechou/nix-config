@@ -44,24 +44,25 @@
   servers = {
     clangd = {
       enable = true;
-      autostart = true;
     };
     hls = {
       enable = true;
-      autostart = true;
       installGhc = false;
     };
     ruff = {
       enable = true;
-      autostart = true;
     };
     pyright = {
       enable = true;
-      autostart = true;
     };
     zls = {
       enable = true;
-      autostart = true;
+    };
+    metals = {
+      enable = true;
+    };
+    java_language_server = {
+      enable = true;
     };
   };
 }
