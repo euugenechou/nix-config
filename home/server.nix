@@ -24,6 +24,7 @@
       neofetch
       nixfmt-classic
       radare2
+      reptyr
       ripgrep
       rustup
       tmux
@@ -95,7 +96,10 @@
         prompt = false;
         nvim.cmd = ''nvim -d -c "wincmd l" -c "norm ]c" "$LOCAL" "$MERGED" "$REMOTE"'';
       };
-      commit.gpgsign = true;
+      commit = {
+        verbose = true;
+        gpgsign = true;
+      };
       gpg.format = "ssh";
       user.signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFBLps3u2eBfFN0b0CGTDLgtLAmYGdglShNsoXxXQX1j";
     };

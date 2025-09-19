@@ -24,8 +24,12 @@
         group = "+lsp";
       }
       {
-        __unkeyed-1 = "<leader>p";
+        __unkeyed-1 = "<leader>o";
         group = "+oil";
+      }
+      {
+        __unkeyed-1 = "<leader>p";
+        group = "+neotree";
       }
       {
         __unkeyed-1 = "<leader>s";

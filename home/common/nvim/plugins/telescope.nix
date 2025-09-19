@@ -13,11 +13,11 @@
       layout_config = {
         horizontal = {
           preview_width = 0.5;
-          results_width = 0.8;
+          results_width = 0.9;
         };
         vertical = {mirror = false;};
-        width = 0.8;
-        height = 0.8;
+        width = 0.9;
+        height = 0.9;
       };
       mappings = {
         i = {

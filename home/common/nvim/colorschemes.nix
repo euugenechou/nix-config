@@ -7,6 +7,10 @@ in {
       mirage = true;
     };
   };
+  kanagawa-paper = {
+    enable = false;
+    settings.theme = "ink";
+  };
   catppuccin = {
     enable = true;
     settings = {
