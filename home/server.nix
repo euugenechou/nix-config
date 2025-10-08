@@ -4,7 +4,21 @@
   lib,
   username,
   ...
-}: {
+}: let
+  rWithPackages = pkgs.rWrapper.override {
+    packages = with pkgs.rPackages; [
+      languageserver
+      lintr
+      tidyverse
+      httpgd
+      here
+      ggthemes
+      cowplot
+      ggsci
+      Hmisc
+    ];
+  };
+in {
   imports = [./common];
 
   home = {
@@ -17,17 +31,31 @@
       alejandra
       bear
       black
+      bpftrace
       clang-tools
+      codex
       dust
       eza
       fd
+      glow
+      koka
+      maven
       neofetch
       nixfmt-classic
+      nushell
+      perf-tools
+      pwndbg
+      rWithPackages
       radare2
       reptyr
       ripgrep
       rustup
+      sbt
+      scalafmt
+      temurin-bin-23
       tmux
+      uv
+      visidata
     ];
 
     file = {
@@ -60,7 +88,7 @@
       enable = true;
       custom = "${config.xdg.configHome}/oh-my-zsh";
       theme = "eugebe";
-      plugins = ["colored-man-pages"];
+      plugins = ["colored-man-pages" "vi-mode"];
     };
     shellAliases = {
       b = "cd $OLDPWD";
