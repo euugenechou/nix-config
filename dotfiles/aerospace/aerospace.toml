@@ -199,3 +199,7 @@ m = ['exec-and-forget open -a "Messages"', 'mode main']
 l = ['exec-and-forget open -a "Slack"', 'mode main']
 e = ['exec-and-forget open -a "Visual Studio Code"', 'mode main']
 n = ['exec-and-forget open -a "Music"', 'mode main']
+
+[[on-window-detected]]
+if.app-id = "com.apple.Music"
+run = "layout floating"
