@@ -11,7 +11,9 @@
     stateVersion = "24.05";
 
     packages = with pkgs; [
+      act
       alejandra
+      awscli2
       bat
       bear
       bfg-repo-cleaner
@@ -20,11 +22,12 @@
       cabal-install
       clang-tools
       claude-code
+      codex
       cmake
-      dafny
-      dart
+      devcontainer
       dust
       eza
+      gh
       gitflow
       fd
       fontconfig
@@ -41,21 +44,24 @@
       imagemagick
       iperf
       # lilypond-unstable
+      lima
       maven
       moreutils
       neofetch
       nixfmt-classic
+      pandoc
       pkg-config
-      poetry
       pyright
       python311
+      prettier
       qemu
       radare2
       ripgrep
       ruff
-      rustup
+      # rustup: Verus dislikes this?
       sbt-with-scala-native
       scalafmt
+      stack
       tmux
       tokei
       typst
@@ -63,7 +69,6 @@
       wget
       yt-dlp
       zig
-      inputs.pwndbg.packages.${pkgs.system}.pwndbg-lldb
       inputs.verusfmt.packages.${pkgs.system}.verusfmt
     ];
 
@@ -131,6 +136,9 @@
       export PATH=$PATH:/Library/Tex/texbin
       export PATH=$PATH:$HOME/go/bin
       export PATH=$PATH:$HOME/.local/bin
+      export PATH=$PATH:$HOME/.docker/bin
+
+      [[ -f "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
 
       export MANPATH=$MANPATH:/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/share/man
       export MANPATH=$MANPATH:/Library/Developer/CommandLineTools/usr/share/man

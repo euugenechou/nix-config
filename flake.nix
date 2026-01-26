@@ -50,7 +50,6 @@
           inherit system;
           overlays = [
             (final: prev: {
-              pwndbg = pwndbg.packages.${system}.default;
               rPackages =
                 prev.rPackages
                 // {

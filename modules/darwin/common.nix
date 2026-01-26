@@ -20,7 +20,7 @@
   homebrew = {
     enable = true;
     onActivation = {
-      autoUpdate = false;
+      autoUpdate = true;
       cleanup = "uninstall";
     };
     taps = ["nikitabobko/tap"];
@@ -34,7 +34,7 @@
       "firefox"
       "font-fira-code-nerd-font"
       "font-hack-nerd-font"
-      "flux"
+      "flux-app"
       "ghidra"
       "ghostty"
       "google-chrome"
@@ -46,10 +46,10 @@
       }
       "macfuse"
       "mactex"
-      "mgba"
+      "mgba-app"
       "obsidian"
       "protonvpn"
-      "r"
+      "r-app"
       "rstudio"
       "skim"
       "spotify"
