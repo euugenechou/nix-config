@@ -8,6 +8,8 @@
       python = ["black"];
       rust = ["rustfmt"];
       scala = ["scalafmt"];
+      markdown = ["prettier"];
+      markdown_mdx = ["prettier"];
       "_" = [
         "squeeze_blanks"
         "trim_whitespace"
