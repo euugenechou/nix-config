@@ -161,13 +161,13 @@
       extraConfig = {
         pull.rebase = false;
         init.defaultBranch = "main";
-        commit = {
-          verbose = true;
-          gpgsign = true;
-        };
-        gpg.format = "ssh";
-        user.signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFBLps3u2eBfFN0b0CGTDLgtLAmYGdglShNsoXxXQX1j";
       };
+    };
+    signing = {
+      signByDefault = true;
+      format = "ssh";
+      signer = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
+      key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFBLps3u2eBfFN0b0CGTDLgtLAmYGdglShNsoXxXQX1j";
     };
   };
 
