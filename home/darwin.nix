@@ -48,7 +48,6 @@
       maven
       moreutils
       neofetch
-      nixfmt-classic
       pandoc
       pkg-config
       pyright
@@ -69,7 +68,6 @@
       wget
       yt-dlp
       zig
-      inputs.verusfmt.packages.${pkgs.system}.verusfmt
     ];
 
     file = {
@@ -79,10 +77,6 @@
       };
       "${config.xdg.configHome}/tmux" = {
         source = ../dotfiles/tmux;
-        recursive = true;
-      };
-      "${config.xdg.configHome}/aerospace" = {
-        source = ../dotfiles/aerospace;
         recursive = true;
       };
       "${config.xdg.configHome}/alacritty" = {
@@ -152,32 +146,28 @@
 
   programs.git = {
     enable = true;
-    userName = "Eugene Chou";
-    userEmail = "euchou@ucsc.edu";
     ignores = [".DS_Store"];
-    aliases = {
-      pushall = "!git remote | xargs -L1 git push --all";
-      history = "!git log --pretty=format: --name-only --diff-filter=A | sort -u";
-      adog = "log --all --decorate --oneline --graph";
-      cowboy = ''!git commit -m "🤠"'';
-    };
-    extraConfig = {
-      pull.rebase = false;
-      init.defaultBranch = "main";
-      merge.tool = "nvim";
-      mergetool = {
-        keepBackup = false;
-        prompt = false;
-        nvim.cmd = ''nvim -d -c "wincmd l" -c "norm ]c" "$LOCAL" "$MERGED" "$REMOTE"'';
+    settings = {
+      user = {
+        name = "Eugene Chou";
+        email = "euchou@ucsc.edu";
       };
-      commit.gpgsign = true;
-      gpg = {
-        format = "ssh";
-        ssh.program =
-          lib.mkIf (pkgs.stdenv.isDarwin)
-          "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
+      aliases = {
+        pushall = "!git remote | xargs -L1 git push --all";
+        history = "!git log --pretty=format: --name-only --diff-filter=A | sort -u";
+        adog = "log --all --decorate --oneline --graph";
+        cowboy = ''!git commit -m "🤠"'';
       };
-      user.signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFBLps3u2eBfFN0b0CGTDLgtLAmYGdglShNsoXxXQX1j";
+      extraConfig = {
+        pull.rebase = false;
+        init.defaultBranch = "main";
+        commit = {
+          verbose = true;
+          gpgsign = true;
+        };
+        gpg.format = "ssh";
+        user.signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFBLps3u2eBfFN0b0CGTDLgtLAmYGdglShNsoXxXQX1j";
+      };
     };
   };
 

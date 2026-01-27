@@ -4,7 +4,7 @@ darwin:
 
 .PHONY: darwin-setup
 darwin-setup:
-	nix run nix-darwin --extra-experimental-features nix-command --extra-experimental-features flakes -- switch --flake .
+	sudo nix run nix-darwin --extra-experimental-features nix-command --extra-experimental-features flakes -- switch --flake .
 
 .PHONY: home
 home:

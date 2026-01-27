@@ -23,11 +23,6 @@
       url = "github:pwndbg/pwndbg";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    verusfmt = {
-      url = "path:./packages/verusfmt";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = inputs @ {
@@ -77,6 +72,7 @@
   in {
     darwinConfigurations = {
       cosmocanyon = mkDarwin "cosmocanyon";
+      gongaga = mkDarwin "gongaga";
     };
     homeConfigurations = {
       "eugebe@dennard" = mkServer "x86_64-linux" "eugebe" "dennard";
