@@ -4,21 +4,7 @@
   lib,
   username,
   ...
-}: let
-  rWithPackages = pkgs.rWrapper.override {
-    packages = with pkgs.rPackages; [
-      languageserver
-      lintr
-      tidyverse
-      httpgd
-      here
-      ggthemes
-      cowplot
-      ggsci
-      Hmisc
-    ];
-  };
-in {
+}: {
   imports = [./common];
 
   home = {
@@ -45,7 +31,7 @@ in {
       nushell
       perf-tools
       pwndbg
-      rWithPackages
+      rForResearch
       radare2
       reptyr
       ripgrep

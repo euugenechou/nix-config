@@ -43,8 +43,10 @@
       idris2
       imagemagick
       iperf
+      iterm2
       # lilypond-unstable
       lima
+      mas
       maven
       moreutils
       neofetch
@@ -58,6 +60,7 @@
       ripgrep
       ruff
       # rustup: Verus dislikes this?
+      rForResearch
       sbt-with-scala-native
       scalafmt
       stack

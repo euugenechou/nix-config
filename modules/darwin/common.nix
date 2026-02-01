@@ -4,12 +4,15 @@
   username,
   ...
 }: {
+  nixpkgs.overlays = [
+    (import ../../overlays/r.nix)
+  ];
+
   nix.enable = false;
   nix.settings.experimental-features = "nix-command flakes";
 
   security.pam.services.sudo_local = {
     touchIdAuth = true;
-    watchIdAuth = true;
     reattach = true;
   };
 
@@ -20,19 +23,18 @@
   homebrew = {
     enable = true;
     onActivation = {
-      autoUpdate = true;
+      autoUpdate = false;
       cleanup = "uninstall";
     };
     taps = ["nikitabobko/tap"];
     brews = [];
     casks = [
       "1password-cli"
+      "adobe-creative-cloud"
       "alacritty"
       "anki"
       "discord"
       "firefox"
-      "font-fira-code-nerd-font"
-      "font-hack-nerd-font"
       "flux-app"
       "ghostty"
       "google-chrome"
@@ -48,11 +50,20 @@
       "spotify"
       "steam"
       "utm"
+      "via"
       "visual-studio-code"
       "xquartz"
       "zoom"
       "zotero"
     ];
+    masApps = {
+      "1Password for Safari" = 1569813296;
+      "Keyword Search" = 1558453954;
+      "LINE" = 539883307;
+      "Logic Pro" = 634148309;
+      "Vimari" = 1480933944;
+      "uBlock Origin Lite" = 6745342698;
+    };
   };
 
   networking.hostName = "gongaga";
@@ -64,18 +75,6 @@
         magnification = true;
         largesize = 80;
         tilesize = 58;
-        persistent-apps = [
-          {app = "/Applications/Firefox.app/";}
-          {app = "/System/Applications/Messages.app/";}
-          {app = "/Applications/Spotify.app/";}
-          {app = "/System/Applications/Music.app/";}
-          {app = "/Applications/Alacritty.app/";}
-          {app = "/Applications/Skim.app/";}
-          {app = "/Applications/Obsidian.app/";}
-          {app = "/Applications/Zotero.app/";}
-          {app = "/System/Applications/Mail.app/";}
-          {app = "/System/Applications/System Settings.app";}
-        ];
         persistent-others = [];
         show-recents = false;
       };
@@ -99,6 +98,7 @@
         NSAutomaticPeriodSubstitutionEnabled = false;
         NSAutomaticQuoteSubstitutionEnabled = false;
         NSAutomaticSpellingCorrectionEnabled = false;
+        NSWindowShouldDragOnGesture = true;
       };
     };
 
@@ -216,4 +216,9 @@
       };
     };
   };
+
+  fonts.packages = with pkgs; [
+    google-fonts
+    nerd-fonts.fira-code
+  ];
 }
