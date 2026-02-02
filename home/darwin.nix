@@ -77,18 +77,17 @@
       "${config.xdg.configHome}/oh-my-zsh" = {
         source = ../dotfiles/oh-my-zsh;
         recursive = true;
+        force = true;
       };
       "${config.xdg.configHome}/tmux" = {
         source = ../dotfiles/tmux;
         recursive = true;
+        force = true;
       };
       "${config.xdg.configHome}/alacritty" = {
         source = ../dotfiles/alacritty;
         recursive = true;
-      };
-      "${config.xdg.configHome}/ghostty" = {
-        source = ../dotfiles/ghostty;
-        recursive = true;
+        force = true;
       };
     };
   };
@@ -178,5 +177,74 @@
     enable = true;
     enableZshIntegration = true;
     nix-direnv.enable = true;
+  };
+
+  programs.ssh = {
+    enable = true;
+    enableDefaultConfig = false;
+    matchBlocks = {
+      "*" = {
+        identityAgent = "\"~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock\"";
+        forwardAgent = true;
+        addKeysToAgent = "no";
+        compression = false;
+        serverAliveInterval = 0;
+        serverAliveCountMax = 3;
+        hashKnownHosts = false;
+        userKnownHostsFile = "~/.ssh/known_hosts";
+        controlMaster = "no";
+        controlPath = "~/.ssh/master-%r@%n:%p";
+        controlPersist = "no";
+      };
+
+      # BSOE
+      "gateway" = {
+        hostname = "ssh.soe.ucsc.edu";
+        forwardX11 = true;
+        forwardX11Trusted = true;
+        user = "euchou";
+      };
+
+      # CRSS
+      "infra" = {
+        hostname = "infra.soe.ucsc.edu";
+        proxyJump = "gateway";
+        user = "euchou";
+      };
+      "mnemosyne" = {
+        hostname = "mnemosyne.soe.ucsc.edu";
+        proxyJump = "gateway";
+        user = "eugebe";
+      };
+      "banana-backdoor" = {
+        hostname = "128.114.43.199";
+        proxyJump = "gateway";
+        user = "eugebe";
+      };
+      "dennard-backdoor" = {
+        hostname = "dennard.soe.ucsc.edu";
+        forwardX11 = true;
+        forwardX11Trusted = true;
+        user = "eugebe";
+      };
+      "moore-backdoor" = {
+        hostname = "moore.soe.ucsc.edu";
+        forwardX11 = true;
+        forwardX11Trusted = true;
+        user = "eugebe";
+      };
+      "xenon-backdoor" = {
+        hostname = "xenon.soe.ucsc.edu";
+        forwardX11 = true;
+        forwardX11Trusted = true;
+        user = "eugebe";
+      };
+      "twilight-backdoor" = {
+        hostname = "twilight.soe.ucsc.edu";
+        forwardX11 = true;
+        forwardX11Trusted = true;
+        user = "eugebe";
+      };
+    };
   };
 }
