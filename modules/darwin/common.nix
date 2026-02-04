@@ -47,6 +47,7 @@
       "r-app"
       "rstudio"
       "skim"
+      "slack"
       "spotify"
       "steam"
       "utm"
@@ -55,6 +56,7 @@
       "xquartz"
       "zoom"
       "zotero"
+      "zulip"
     ];
     masApps = {
       "1Password for Safari" = 1569813296;
@@ -218,6 +220,7 @@
   };
 
   fonts.packages = with pkgs; [
+    comic-mono
     google-fonts
     nerd-fonts.fira-code
   ];
