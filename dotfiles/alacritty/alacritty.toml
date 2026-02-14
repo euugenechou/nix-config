@@ -3,14 +3,14 @@
 TERM = "xterm-256color"
 
 [font]
-size = 13.0
+size = 14.0
 
 [font.glyph_offset]
 x = 0
 y = 2
 
 [font.normal]
-family = "Comic Mono"
+family = "ComicShannsMono Nerd Font"
 
 [font.offset]
 x = 0

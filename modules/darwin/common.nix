@@ -222,6 +222,8 @@
   fonts.packages = with pkgs; [
     comic-mono
     google-fonts
+    nerd-fonts.comic-shanns-mono
     nerd-fonts.fira-code
+    nerd-fonts.sauce-code-pro
   ];
 }

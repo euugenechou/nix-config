@@ -44,6 +44,7 @@
       imagemagick
       iperf
       iterm2
+      jujutsu
       # lilypond-unstable
       lima
       mas
