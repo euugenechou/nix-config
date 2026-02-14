@@ -30,6 +30,6 @@ y = 20
 draw_bold_text_with_bright_colors = false
 
 [general]
-import = ["/Users/eugebe/.config/alacritty/themes/one-monokai.toml"]
+import = ["~/.config/alacritty/themes/one-monokai.toml"]
 
 [terminal]
