@@ -68,8 +68,6 @@
     };
   };
 
-  networking.hostName = "gongaga";
-
   system = {
     defaults = {
       dock = {

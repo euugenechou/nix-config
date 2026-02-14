@@ -4,6 +4,7 @@
   ...
 }: let
   username = "eugebe";
+  hostname = "gongaga";
 in {
   imports = [
     ../../modules/darwin/common.nix
@@ -14,9 +15,10 @@ in {
     config.allowUnfree = true;
   };
 
+  networking.hostName = hostname;
+
   system = {
     primaryUser = username;
-    defaults.NSGlobalDomain.NSWindowShouldDragOnGesture = true;
     configurationRevision = self.rev or self.dirtyRev or null;
     stateVersion = 5;
   };

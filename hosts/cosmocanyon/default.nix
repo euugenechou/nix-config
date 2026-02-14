@@ -4,6 +4,7 @@
   ...
 }: let
   username = "eugene";
+  hostname = "cosmocanyon";
 in {
   imports = [
     ../../modules/darwin/common.nix
@@ -13,6 +14,8 @@ in {
     hostPlatform = "aarch64-darwin";
     config.allowUnfree = true;
   };
+
+  networking.hostName = hostname;
 
   system = {
     primaryUser = username;
