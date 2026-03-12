@@ -29,6 +29,7 @@
       eza
       gh
       gitflow
+      fastfetch
       fd
       fontconfig
       fselect
@@ -50,7 +51,6 @@
       mas
       maven
       moreutils
-      neofetch
       pandoc
       pkg-config
       pyright
@@ -214,7 +214,7 @@
       };
       "mnemosyne" = {
         hostname = "mnemosyne.soe.ucsc.edu";
-        proxyJump = "gateway";
+        proxyJump = "dennard-backdoor";
         user = "eugebe";
       };
       "banana-backdoor" = {
@@ -245,6 +245,12 @@
         forwardX11 = true;
         forwardX11Trusted = true;
         user = "eugebe";
+      };
+      "melete" = {
+        hostname = "melete.soe.ucsc.edu";
+        forwardX11 = true;
+        forwardX11Trusted = true;
+        user = "euchou";
       };
     };
   };

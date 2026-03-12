@@ -22,11 +22,11 @@
       codex
       dust
       eza
+      fastfetch
       fd
       glow
       koka
       maven
-      neofetch
       nixfmt-classic
       nushell
       perf-tools
