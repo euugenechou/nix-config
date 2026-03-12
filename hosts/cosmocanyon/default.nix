@@ -12,7 +12,10 @@ in {
 
   nixpkgs = {
     hostPlatform = "aarch64-darwin";
-    config.allowUnfree = true;
+    config = {
+      allowBroken = true; # This was for some R thing
+      allowUnfree = true;
+    };
   };
 
   networking.hostName = hostname;
