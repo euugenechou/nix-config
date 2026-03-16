@@ -64,6 +64,7 @@
       "LINE" = 539883307;
       "Logic Pro" = 634148309;
       "Vimari" = 1480933944;
+      "forScore" = 363738376;
       "uBlock Origin Lite" = 6745342698;
     };
   };

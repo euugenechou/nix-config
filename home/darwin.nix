@@ -161,10 +161,8 @@
         adog = "log --all --decorate --oneline --graph";
         cowboy = ''!git commit -m "🤠"'';
       };
-      extraConfig = {
-        pull.rebase = false;
-        init.defaultBranch = "main";
-      };
+      pull.rebase = false;
+      init.defaultBranch = "main";
     };
     signing = {
       signByDefault = true;
