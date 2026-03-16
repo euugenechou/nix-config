@@ -90,6 +90,9 @@
         recursive = true;
         force = true;
       };
+      "${config.xdg.configHome}/git/allowed_signers".text = ''
+        euchou@ucsc.edu ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFBLps3u2eBfFN0b0CGTDLgtLAmYGdglShNsoXxXQX1j
+      '';
     };
   };
 
@@ -163,6 +166,7 @@
       };
       pull.rebase = false;
       init.defaultBranch = "main";
+      gpg.ssh.allowedSignersFile = "~/.config/git/allowed_signers";
     };
     signing = {
       signByDefault = true;
