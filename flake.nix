@@ -34,6 +34,20 @@
     pwndbg,
     ...
   }: let
+    old-nixpkgs-src = builtins.fetchGit {
+      # Descriptive name to make the store path easier to identify
+      name = "my-old-revision";
+      url = "https://github.com/NixOS/nixpkgs/";
+      ref = "refs/heads/nixpkgs-unstable";
+      rev = "21808d22b1cda1898b71cf1a1beb524a97add2c4";
+    };
+
+    old-pkgs = import old-nixpkgs-src {
+      system = "x86_64-linux";
+    };
+
+    temurin-bin-23 = old-pkgs.temurin-bin-23;
+
     mkDarwin = host:
       nix-darwin.lib.darwinSystem {
         specialArgs = {inherit self inputs;};
@@ -45,6 +59,10 @@
           inherit system;
           overlays = [
             (import ./overlays/r.nix)
+            (final: prev: {
+              inherit temurin-bin-23;
+              pwndbg = pwndbg.packages.${system}.default;
+            })
           ];
         };
         extraSpecialArgs = {inherit inputs username;};

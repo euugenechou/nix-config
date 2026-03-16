@@ -7,6 +7,11 @@
 }: {
   imports = [./common];
 
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowBroken = true;
+  };
+
   home = {
     stateVersion = "24.05";
 
@@ -15,6 +20,7 @@
 
     packages = with pkgs; [
       alejandra
+      bfg-repo-cleaner
       bear
       black
       bpftrace
@@ -24,10 +30,10 @@
       eza
       fastfetch
       fd
+      gh
       glow
       koka
       maven
-      nixfmt-classic
       nushell
       perf-tools
       pwndbg
@@ -53,6 +59,9 @@
         source = ../dotfiles/tmux;
         recursive = true;
       };
+      "${config.xdg.configHome}/git/allowed_signers".text = ''
+        euchou@ucsc.edu ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFBLps3u2eBfFN0b0CGTDLgtLAmYGdglShNsoXxXQX1j
+      '';
     };
   };
 
@@ -89,33 +98,59 @@
 
   programs.git = {
     enable = true;
-    userName = "Eugene Chou";
-    userEmail = "euchou@ucsc.edu";
     ignores = [
       ".direnv"
       ".DS_Store"
     ];
-    aliases = {
-      pushall = "!git remote | xargs -L1 git push --all";
-      history = "!git log --pretty=format: --name-only --diff-filter=A | sort -u";
-      adog = "log --all --decorate --oneline --graph";
-      cowboy = ''!git commit -m "🤠"'';
-    };
-    extraConfig = {
+    settings = {
+      user = {
+        name = "Eugene Chou";
+        email = "euchou@ucsc.edu";
+      };
+      aliases = {
+        pushall = "!git remote | xargs -L1 git push --all";
+        history = "!git log --pretty=format: --name-only --diff-filter=A | sort -u";
+        adog = "log --all --decorate --oneline --graph";
+        cowboy = ''!git commit -m "🤠"'';
+        when-removed = ''
+          !f() {
+            if [ -z "$1" ]; then
+              echo "Usage: git when-removed <path>";
+              exit 1;
+            fi;
+            git log --diff-filter=D --summary \
+              --format="%C(yellow)%h%Creset %Cgreen%ad%Creset %C(cyan)%an%Creset %s" \
+              --date=short -- "$1" |
+              grep -E "delete mode|^[0-9a-f]{7,}" --color=never;
+          }; f
+        '';
+        revive = ''
+          !f() {
+            path="$1";
+            if [ -z "$path" ]; then
+              echo "Usage: git revive <path>";
+              exit 1;
+            fi;
+            echo "🔍 Searching for last version of $path...";
+            commit=$(git rev-list -n 1 HEAD -- "$path");
+            if [ -z "$commit" ]; then
+              echo "❌ No previous version of $path found in history.";
+              exit 1;
+            fi;
+            echo "🔄 Restoring from commit $commit...";
+            git checkout "$commit" -- "$path" &&
+            echo "✅ Revived $path from $commit";
+          }; f
+        '';
+      };
       pull.rebase = false;
       init.defaultBranch = "main";
-      merge.tool = "nvim";
-      mergetool = {
-        keepBackup = false;
-        prompt = false;
-        nvim.cmd = ''nvim -d -c "wincmd l" -c "norm ]c" "$LOCAL" "$MERGED" "$REMOTE"'';
-      };
-      commit = {
-        verbose = true;
-        gpgsign = true;
-      };
-      gpg.format = "ssh";
-      user.signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFBLps3u2eBfFN0b0CGTDLgtLAmYGdglShNsoXxXQX1j";
+      gpg.ssh.allowedSignersFile = "~/.config/git/allowed_signers";
+    };
+    signing = {
+      signByDefault = true;
+      format = "ssh";
+      key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFBLps3u2eBfFN0b0CGTDLgtLAmYGdglShNsoXxXQX1j";
     };
   };
 
