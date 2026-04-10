@@ -19,6 +19,7 @@
       bfg-repo-cleaner
       black
       btop
+      bun
       cabal-install
       clang-tools
       claude-code
@@ -46,13 +47,17 @@
       iperf
       iterm2
       jujutsu
-      # lilypond-unstable
+      kubectl
+      kubelogin-oidc
       lima
+      # lilypond-unstable
       mas
       maven
       moreutils
+      opam
       pandoc
       pkg-config
+      poppler-utils
       pyright
       python311
       prettier
@@ -67,6 +72,7 @@
       stack
       tmux
       tokei
+      texliveFull
       typst
       uv
       wget
@@ -133,7 +139,6 @@
         export PATH=$PRE_BREW_PATH:$PATH
       fi
 
-      export PATH=$PATH:/Library/Tex/texbin
       export PATH=$PATH:$HOME/go/bin
       export PATH=$PATH:$HOME/.local/bin
       export PATH=$PATH:$HOME/.docker/bin
@@ -185,6 +190,9 @@
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
+    includes = [
+      "~/.lima/default/ssh.config"
+    ];
     matchBlocks = {
       "*" = {
         identityAgent = "\"~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock\"";

@@ -26,7 +26,6 @@
       autoUpdate = false;
       cleanup = "uninstall";
     };
-    taps = ["nikitabobko/tap"];
     brews = [];
     casks = [
       "1password-cli"
@@ -40,8 +39,8 @@
       "google-chrome"
       "iina"
       "macfuse"
-      "mactex"
       "mgba-app"
+      "multipass"
       "nordvpn"
       "obsidian"
       "r-app"
@@ -100,6 +99,7 @@
         NSAutomaticQuoteSubstitutionEnabled = false;
         NSAutomaticSpellingCorrectionEnabled = false;
         NSWindowShouldDragOnGesture = true;
+        _HIHideMenuBar = false;
       };
     };
 
@@ -219,10 +219,12 @@
   };
 
   fonts.packages = with pkgs; [
+    cascadia-code
     comic-mono
     google-fonts
     nerd-fonts.comic-shanns-mono
     nerd-fonts.fira-code
+    nerd-fonts.roboto-mono
     nerd-fonts.sauce-code-pro
   ];
 }
