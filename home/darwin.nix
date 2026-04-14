@@ -36,6 +36,7 @@
       fselect
       ghc
       ghostscript
+      glab
       glances
       glow
       go
@@ -61,6 +62,7 @@
       pyright
       python311
       prettier
+      pwndbg-lldb
       qemu
       radare2
       ripgrep
@@ -261,6 +263,13 @@
         forwardX11 = true;
         forwardX11Trusted = true;
         user = "euchou";
+      };
+
+      # Misc
+      "cs162" = {
+        hostname = "localhost";
+        port = 16222;
+        user = "workspace";
       };
     };
   };

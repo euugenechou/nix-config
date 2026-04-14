@@ -1,11 +1,15 @@
 {
   self,
+  inputs,
   pkgs,
   username,
   ...
 }: {
   nixpkgs.overlays = [
     (import ../../overlays/r.nix)
+    (final: prev: {
+      pwndbg-lldb = inputs.pwndbg.packages.${prev.stdenv.system}.pwndbg-lldb;
+    })
   ];
 
   nix.enable = false;
