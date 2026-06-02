@@ -9,6 +9,11 @@
     (import ../../overlays/r.nix)
     (final: prev: {
       pwndbg-lldb = inputs.pwndbg.packages.${prev.stdenv.system}.pwndbg-lldb;
+      claude-code =
+        (import inputs.nixpkgs-unstable {
+          system = prev.stdenv.system;
+          config.allowUnfree = true;
+        }).claude-code;
     })
   ];
 
@@ -66,6 +71,7 @@
       "Keyword Search" = 1558453954;
       "LINE" = 539883307;
       "Logic Pro" = 634148309;
+      "OmniGraffle 7" = 1142578753;
       "Vimari" = 1480933944;
       "forScore" = 363738376;
       "uBlock Origin Lite" = 6745342698;
@@ -220,6 +226,7 @@
         ];
       };
     };
+    tailscale.enable = true;
   };
 
   fonts.packages = with pkgs; [

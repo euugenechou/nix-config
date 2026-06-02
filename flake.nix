@@ -23,6 +23,8 @@
       url = "github:pwndbg/pwndbg";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
   };
 
   outputs = inputs @ {
@@ -62,6 +64,7 @@
             (final: prev: {
               inherit temurin-bin-23;
               pwndbg = pwndbg.packages.${system}.default;
+              claude-code = inputs.nixpkgs-unstable.legacyPackages.${system}.claude-code;
             })
           ];
         };

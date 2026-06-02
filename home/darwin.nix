@@ -43,6 +43,7 @@
       gradle
       graphviz
       htop
+      hyperfine
       idris2
       imagemagick
       iperf
